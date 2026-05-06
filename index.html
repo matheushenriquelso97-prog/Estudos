@@ -27,6 +27,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:
 /* VIEWS */
 .view{display:none;min-height:100vh;animation:fadeUp .3s ease;}
 .view.active{display:block;}
+#view-materia.active{display:flex!important;}
+#view-materia-dc.active{display:flex!important;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 
 /* TOPBAR */
@@ -422,7 +424,7 @@ tr:hover td{background:rgba(255,255,255,.015);}
       <div class="insight-dot"></div>
       <div class="insight-title">Assessor IA — Análise do seu progresso</div>
     </div>
-    <div class="insight-text" id="insight-text">Bem-vindo, Matheus! Seu sistema está pronto. <strong>Comece pelo Tema 1 de Contabilidade Pública</strong> — é a base de tudo. Conclua a teoria, faça as questões e passe pela revisão Anki antes de avançar. O sistema irá te guiar automaticamente.</div>
+    <div class="insight-text" id="insight-text">Bem-vindo, Matheus! Seu sistema está pronto. Acesse <strong>Direito Constitucional</strong> para começar a estudar. As questões são geradas pela IA e o Anki se adapta aos seus erros automaticamente.</div>
   </div>
 
   <!-- STATS -->
