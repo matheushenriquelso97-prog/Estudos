@@ -27,8 +27,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:
 /* VIEWS */
 .view{display:none;min-height:100vh;animation:fadeUp .3s ease;}
 .view.active{display:block;}
-#view-materia.active{display:flex!important;}
-#view-materia-dc.active{display:flex!important;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 
 /* TOPBAR */
@@ -37,7 +35,17 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:
 .nav-btn{background:none;border:none;cursor:pointer;color:var(--text3);font-family:var(--font-m);font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:6px 12px;border-radius:var(--r2);transition:all .2s;}
 .nav-btn:hover{color:var(--text);background:var(--s2);}
 .nav-btn.active{color:var(--gold);background:rgba(212,168,83,.1);}
-.streak-badge{font-family:var(--font-m);font-size:11px;color:var(--gold2);display:flex;align-items:center;gap:5px;}
+.cronometro-wrap{display:flex;align-items:center;gap:6px;background:var(--s1);border:1px solid var(--b2);border-radius:var(--r2);padding:5px 10px;font-family:var(--font-m);font-size:12px;color:var(--text2);}
+.cronometro-wrap.ativo{border-color:var(--green);color:var(--green2);}
+.cron-icon{font-size:12px;}
+#cron-display{font-family:var(--font-m);font-size:12px;min-width:40px;text-align:center;}
+.cron-btn{background:none;border:none;cursor:pointer;color:var(--text3);font-size:11px;padding:0 2px;transition:color .2s;}
+.cron-btn:hover{color:var(--text);}
+.cronometro-wrap.ativo .cron-btn{color:var(--green2);}
+.stats-tempo{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;}
+.stat-tempo{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r2);padding:10px 14px;flex:1;min-width:120px;}
+.stat-tempo-val{font-family:var(--font-h);font-size:20px;font-weight:800;color:var(--green2);}
+.stat-tempo-lbl{font-family:var(--font-m);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--text3);margin-top:3px;}
 .api-indicator{width:7px;height:7px;border-radius:50%;background:var(--red);transition:background .3s;}
 .api-indicator.ok{background:var(--green);}
 
@@ -112,9 +120,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:
 
 /* MATÉRIA VIEW */
 #view-materia{padding-top:54px;display:none;}
-#view-materia.active{display:flex!important;}
+#view-materia.active{display:flex!important;min-height:100vh;}
 #view-materia-dc{padding-top:54px;display:none;}
-#view-materia-dc.active{display:flex!important;}
+#view-materia-dc.active{display:flex!important;min-height:100vh;}
 .mat-sidebar{width:250px;flex-shrink:0;border-right:1px solid var(--b1);height:calc(100vh - 54px);position:sticky;top:54px;overflow-y:auto;padding:20px 0;}
 .sb-mat-title{font-family:var(--font-h);font-size:14px;font-weight:700;padding:0 18px 4px;color:var(--text);}
 .sb-mat-sub{font-family:var(--font-m);font-size:10px;color:var(--text3);padding:0 18px 16px;border-bottom:1px solid var(--b1);margin-bottom:8px;}
@@ -396,6 +404,11 @@ tr:hover td{background:rgba(255,255,255,.015);}
     <button class="nav-btn" id="nav-sim" onclick="showView('simulado')">Simulado</button>
   </div>
   <div class="streak-badge">🔥 <span id="streak-val">0</span>d</div>
+  <div class="cronometro-wrap" id="cronometro-wrap" title="Tempo de estudo hoje">
+    <span class="cron-icon">⏱</span>
+    <span id="cron-display">00:00</span>
+    <button class="cron-btn" id="cron-btn" onclick="toggleCronometro()">▶</button>
+  </div>
   <div class="api-indicator" id="api-dot" title="Status da API"></div>
   <button class="nav-btn" onclick="abrirConfig()" id="config-btn" style="color:var(--gold);border:1px solid rgba(212,168,83,.3);">⚙️ API</button>
 </div>
@@ -433,7 +446,8 @@ tr:hover td{background:rgba(255,255,255,.015);}
     <div class="stat"><div class="stat-label">Taxa de acerto</div><div class="stat-val" id="s-acerto" style="color:var(--green2)">—</div><div class="stat-sub">geral</div></div>
     <div class="stat"><div class="stat-label">Temas liberados</div><div class="stat-val" id="s-temas" style="color:var(--gold2)">0</div><div class="stat-sub">de 7</div></div>
     <div class="stat"><div class="stat-label">Cards revisados</div><div class="stat-val" id="s-cards" style="color:var(--purple2)">0</div><div class="stat-sub">flashcards</div></div>
-    <div class="stat"><div class="stat-label">Simulados feitos</div><div class="stat-val" id="s-sims" style="color:var(--red2)">0</div><div class="stat-sub">total</div></div>
+    <div class="stat"><div class="stat-label">Tempo hoje</div><div class="stat-val" id="s-tempo-hoje" style="color:var(--green2)">0h</div><div class="stat-sub">de estudo</div></div>
+    <div class="stat"><div class="stat-label">Streak</div><div class="stat-val" id="s-streak" style="color:var(--gold2)">0</div><div class="stat-sub">dias seguidos</div></div>
   </div>
 
   <!-- MATERIAS -->
@@ -496,14 +510,14 @@ tr:hover td{background:rgba(255,255,255,.015);}
       <div class="q-title">📝 Questões — Assessor IA</div>
       <div class="q-meta">
         <span>Geradas em tempo real pela IA</span>
-        <span id="q-tema-atual">Tema: Aspectos Introdutórios</span>
+        <span id="q-tema-atual">Tema: Normas Constitucionais · Poder Constituinte</span>
         <span id="q-sessao-count">Sessão: 0 respondidas</span>
       </div>
     </div>
 
     <!-- FILTROS DE MATÉRIA -->
     <div class="q-filtros" id="filtros-materia" style="margin-bottom:12px">
-      <button class="filtro-btn active" onclick="setFiltroMateria('cp')" id="fmat-cp" style="background:rgba(74,124,240,.15);border-color:var(--blue);color:var(--blue2)">Cont. Pública</button>
+      <button class="filtro-btn" onclick="setFiltroMateria('cp')" id="fmat-cp">Cont. Pública</button>
       <button class="filtro-btn" onclick="setFiltroMateria('dc')" id="fmat-dc">Dir. Constitucional</button>
     </div>
 
@@ -1333,7 +1347,7 @@ function loadApiKey(){
 }
 
 // ======== QUESTÕES IA ========
-let materiaAtual = 'cp';
+let materiaAtual = '';
 let temaFiltroAtual = 0;
 let qAtualCorreto = null;
 let qAtualTexto = '';
@@ -2863,9 +2877,98 @@ function injetarAula12DC(){
 }
 
 
+// ======== CRONÔMETRO DE ESTUDOS ========
+let cronAtivo = false;
+let cronSegundos = 0;
+let cronInterval = null;
+let cronHoje = 0;
+let cronTotal = 0;
+
+function initCronometro(){
+  const hoje = new Date().toDateString();
+  const salvo = JSON.parse(localStorage.getItem('cron_data')||'{}');
+  
+  // Calcular streak
+  const ultimoDia = salvo.ultimoDia || '';
+  const ontem = new Date(Date.now() - 86400000).toDateString();
+  
+  if(salvo.ultimoDia === hoje){
+    cronHoje = salvo.hoje || 0;
+    state.streak = salvo.streak || 0;
+  } else if(salvo.ultimoDia === ontem){
+    cronHoje = 0;
+    state.streak = (salvo.streak || 0) + 1;
+  } else {
+    cronHoje = 0;
+    state.streak = salvo.streak > 0 ? 0 : 0;
+  }
+  
+  cronTotal = salvo.total || 0;
+  atualizarDisplayCron();
+  atualizarStreakDisplay();
+}
+
+function toggleCronometro(){
+  cronAtivo = !cronAtivo;
+  const btn = document.getElementById('cron-btn');
+  const wrap = document.getElementById('cronometro-wrap');
+  
+  if(cronAtivo){
+    btn.textContent = '⏸';
+    wrap.classList.add('ativo');
+    cronInterval = setInterval(()=>{
+      cronSegundos++;
+      cronHoje++;
+      cronTotal++;
+      atualizarDisplayCron();
+      // Salvar a cada 30 segundos
+      if(cronSegundos % 30 === 0) salvarCronometro();
+    }, 1000);
+  } else {
+    btn.textContent = '▶';
+    wrap.classList.remove('ativo');
+    clearInterval(cronInterval);
+    salvarCronometro();
+  }
+}
+
+function atualizarDisplayCron(){
+  const m = Math.floor(cronSegundos/60).toString().padStart(2,'0');
+  const s = (cronSegundos%60).toString().padStart(2,'0');
+  const el = document.getElementById('cron-display');
+  if(el) el.textContent = m+':'+s;
+  
+  // Atualizar stat do dashboard
+  const horas = Math.floor(cronHoje/3600);
+  const minutos = Math.floor((cronHoje%3600)/60);
+  const elHoje = document.getElementById('s-tempo-hoje');
+  if(elHoje){
+    if(horas > 0) elHoje.textContent = horas+'h'+minutos+'m';
+    else elHoje.textContent = minutos+'m';
+  }
+}
+
+function atualizarStreakDisplay(){
+  const el1 = document.getElementById('streak-val');
+  const el2 = document.getElementById('s-streak');
+  if(el1) el1.textContent = state.streak;
+  if(el2) el2.textContent = state.streak;
+}
+
+function salvarCronometro(){
+  const hoje = new Date().toDateString();
+  localStorage.setItem('cron_data', JSON.stringify({
+    hoje: cronHoje,
+    total: cronTotal,
+    ultimoDia: hoje,
+    streak: state.streak
+  }));
+}
+
 // ======== INIT ========
 setGreeting();
 injetarAula00DC();
+initCronometro();
 loadApiKey();
 initAnki();
 verificarAlertaRevisao();
