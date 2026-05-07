@@ -5,7 +5,7 @@
   "start_url": "/Estudos/",
   "scope": "/Estudos/",
   "display": "standalone",
-  "orientation": "landscape",
+  "orientation": "any",
   "background_color": "#06080f",
   "theme_color": "#7c3aed",
   "lang": "pt-BR",
