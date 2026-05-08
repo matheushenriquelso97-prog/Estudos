@@ -538,7 +538,7 @@ tr:last-child td{border-bottom:none;}
 </div>
 
 <!-- BOTÃO FLUTUANTE -->
-<button class="btn-flutuante" id="btn-flutuante" onclick="marcarConcluida('dc',0)">✓ Marcar Aula 00 como Concluída</button>
+<button class="btn-flutuante" id="btn-flutuante">✓ Marcar como Concluída</button>
 
 <!-- TOPBAR -->
 <div class="topbar">
@@ -690,7 +690,7 @@ tr:last-child td{border-bottom:none;}
         </div>
         <div class="assessor-msg" id="assessor-msg">Bem-vindo, Matheus! Você está iniciando sua preparação em <strong>Direito Constitucional</strong>. Comece pela <strong>Aula 00</strong> — é a base de tudo. Após estudar, marque como concluída para ativar o sistema de revisão adaptativa.</div>
         <div class="assessor-actions">
-          <button class="btn-prim" onclick="showMateria('dc')">▶ Continuar estudando</button>
+          <button class="btn-prim" id="btn-continuar-estudando" onclick="continuarEstudando()">▶ Continuar estudando</button>
           <button class="btn-sec" onclick="showView('revisoes')">Ver revisões →</button>
           <button class="btn-sec" onclick="showView('relatorios')">Relatório →</button>
         </div>
@@ -1936,9 +1936,7 @@ tr:last-child td{border-bottom:none;}
 <div class="view" id="view-questoes">
   <div class="q-main">
     <div class="q-title">📝 Questões — Assessor IA</div>
-    <div class="filtros-row" id="filtros-mat">
-      <button class="filtro-btn active" onclick="setMatQ('dc',this)">⚖️ Dir. Constitucional</button>
-    </div>
+    <div class="filtros-row" id="filtros-mat"></div>
     <div class="filtros-row" id="filtros-tema"></div>
 
     <!-- SELETOR DE MODALIDADE -->
@@ -2292,7 +2290,7 @@ function showView(name){
   window.scrollTo(0,0);
 }
 
-function showMateria(mat){
+function showMateria(mat){ ls('ultima_materia_acessada',mat);
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.querySelectorAll('.mat-view').forEach(v=>{v.classList.remove('active');v.style.display='none';});
   document.querySelectorAll('.sidebar .sb-item').forEach(s=>s.classList.remove('active'));
@@ -2499,7 +2497,7 @@ function renderRevisoes(){
   });
   const concl=revs.filter(r=>r.concl).slice(-5).reverse();
   if(revs.length===0){
-    cont.innerHTML=`<div style="background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:44px;text-align:center"><div style="font-size:52px;margin-bottom:16px">📚</div><div style="font-family:var(--fh);font-size:18px;font-weight:700;margin-bottom:8px">Nenhuma revisão agendada</div><div style="font-family:var(--fm);font-size:12px;color:var(--t3);margin-bottom:20px">Conclua uma aula para ativar o sistema de revisão adaptativa.</div><button onclick="showMateria('dc')" class="btn-prim">Ir para Direito Constitucional →</button></div>`;
+    cont.innerHTML=`<div style="background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:44px;text-align:center"><div style="font-size:52px;margin-bottom:16px">📚</div><div style="font-family:var(--fh);font-size:18px;font-weight:700;margin-bottom:8px">Nenhuma revisão agendada</div><div style="font-family:var(--fm);font-size:12px;color:var(--t3);margin-bottom:20px">Conclua uma aula para ativar o sistema de revisão adaptativa.</div><button onclick="irParaPrimeiraMateria()" class="btn-prim">Ir para estudar →</button></div>`;
     return;
   }
   const corTipo={rapida:'var(--g2)',media:'var(--go2)',profunda:'var(--p2)',especialista:'var(--b2c)'};
@@ -2783,7 +2781,33 @@ function setTema(i,btn){
   btn.classList.add('active');
   updateDesemp(); gerarQuestao();
 }
-function initQ(){ modalidade='ce'; renderFiltrosTema(); }
+function initQ(){
+  modalidade='ce';
+  renderFiltrosMateria();
+  renderFiltrosTema();
+}
+
+// Renderiza botões de matéria dinamicamente — só matérias com aulas
+function renderFiltrosMateria(){
+  const cont=g('filtros-mat'); if(!cont) return;
+  const ICONS={dc:'⚖️',da:'🏛️',lp:'📝',rl:'🧮',ap:'🏢',ti:'💻',ea:'📊',mf:'💰',cg:'📒',cp:'📊',afo:'💼',lrf:'⚖️',df:'💵',dt:'🧾',lt:'📋',ce:'🔍',ag:'🔎',ai:'📑',nbc:'📚',adc:'📈',fp:'🏦',gp:'🎯',dp:'👴',pa:'⚖️',ep:'🤝',cc:'🔢'};
+  const NOMES={dc:'Dir. Constitucional',da:'Dir. Administrativo',lp:'Língua Portuguesa',rl:'Raciocínio Lógico',ap:'Adm. Pública',ti:'Tecnologia da Info.',ea:'Estatística',mf:'Mat. Financeira',cg:'Cont. Geral',cp:'Cont. Pública',afo:'AFO',lrf:'LRF',df:'Dir. Financeiro',dt:'Dir. Tributário',lt:'Leg. Tributária',ce:'Controle Externo',ag:'Auditoria Gov.',ai:'Auditoria Ind.',nbc:'NBC',adc:'Análise DC',fp:'Finanças Públicas',gp:'Gestão Pública',dp:'Dir. Previdenciário',pa:'Dir. Processual',ep:'Ética',cc:'Cont. Custos'};
+  const disponíveis = Object.keys(AULAS).filter(m=>AULAS[m].length>0);
+  cont.innerHTML = disponíveis.map(m=>`<button class="filtro-btn ${m===matQ?'active':''}" onclick="setMatQ('${m}',this)">${ICONS[m]||'📚'} ${NOMES[m]||m.toUpperCase()}</button>`).join('');
+}
+
+// Ir para a primeira matéria com aulas disponíveis
+function irParaPrimeiraMateria(){
+  const m=Object.keys(AULAS).find(m=>AULAS[m].length>0);
+  if(m) showMateria(m);
+}
+
+// Continuar estudando — vai para última matéria acessada ou primeira disponível
+function continuarEstudando(){
+  const ult=gl('ultima_materia_acessada');
+  const m=ult&&AULAS[ult]?ult:Object.keys(AULAS).find(m=>AULAS[m].length>0);
+  if(m) showMateria(m);
+}
 
 // ===========================================
 // STREAMING
@@ -3176,14 +3200,16 @@ function mostrarAnkiDone(feitos){
 // ===========================================
 function renderSimulados(){
   const cont=g('simulados-content');if(!cont)return;
-  const aula0=gl('aula_concl_dc_0');
-  if(!aula0){cont.innerHTML=`<div style="background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:44px;text-align:center"><div style="font-size:52px;margin-bottom:16px">🎯</div><div style="font-family:var(--fh);font-size:18px;font-weight:700;margin-bottom:8px">Nenhuma aula concluída</div><div style="font-family:var(--fm);font-size:12px;color:var(--t3);margin-bottom:20px">Conclua aulas para que o sistema gere simulados personalizados.</div><button onclick="showMateria('dc')" class="btn-prim">Ir para Direito Constitucional →</button></div>`;return;}
+  const matsComAulas=Object.keys(AULAS).filter(m=>AULAS[m].length>0);
+  const aula0=matsComAulas.some(m=>gl(`aula_concl_${m}_0`));
+  const primMat=matsComAulas[0]||'dc';
+  if(!aula0){cont.innerHTML=`<div style="background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:44px;text-align:center"><div style="font-size:52px;margin-bottom:16px">🎯</div><div style="font-family:var(--fh);font-size:18px;font-weight:700;margin-bottom:8px">Nenhuma aula concluída</div><div style="font-family:var(--fm);font-size:12px;color:var(--t3);margin-bottom:20px">Conclua aulas para que o sistema gere simulados personalizados.</div><button onclick="irParaPrimeiraMateria()" class="btn-prim">Ir para estudar →</button></div>`;return;}
   cont.innerHTML=`<div style="background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:24px;margin-bottom:16px">
     <div style="font-family:var(--fh);font-size:17px;font-weight:700;margin-bottom:8px">🎯 Simulado — DC Aula 00</div>
     <div style="font-family:var(--fm);font-size:12px;color:var(--t3);margin-bottom:16px">Questões geradas pela IA com dificuldade adaptativa ao seu desempenho.</div>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <button onclick="iniciarQ('dc')" class="btn-prim">🚀 Iniciar Simulado (10 questões)</button>
-      <button onclick="iniciarQ('dc')" class="btn-sec">📋 Simulado Completo (20 questões)</button>
+      <button onclick="iniciarQ(primMat)" class="btn-prim">🚀 Iniciar Simulado (10 questões)</button>
+      <button onclick="iniciarQ(primMat)" class="btn-sec">📋 Simulado Completo (20 questões)</button>
     </div>
   </div>`;
 }
@@ -3197,14 +3223,26 @@ function renderRelatorios(){
   const pct=q>0?Math.round(a/q*100):0;
   const aulasConcl=Object.keys(S.aulasConcl).length;
   const revPend=JSON.parse(gl('revisoes')||'[]').filter(r=>!r.concl).length;
+  // Desempenho por matéria — dinâmico
+  const desempMateria = Object.keys(AULAS).filter(m=>AULAS[m].length>0).map(m=>{
+    let qM=0,aM=0;
+    Object.keys(S.qTema).filter(k=>k.startsWith(m+'_')).forEach(k=>{qM+=S.qTema[k]||0;aM+=S.acTema[k]||0;});
+    const pM=qM>0?Math.round(aM/qM*100):0;
+    const NOMES={dc:'Dir. Constitucional',cp:'Contabilidade Pública',da:'Dir. Administrativo',cg:'Cont. Geral',afo:'AFO',lrf:'LRF',ce:'Controle Externo'};
+    const nome=NOMES[m]||m.toUpperCase();
+    return `<div class="dp-item" style="margin-bottom:14px">
+      <div class="dp-row" style="margin-bottom:6px"><div class="dp-nome">${nome}</div><div class="dp-pct" style="color:${pM>=80?'var(--g3)':pM>=60?'var(--go3)':'var(--r2)'}">${pM}%</div></div>
+      <div class="dp-bar"><div class="dp-fill" style="width:${pM}%;background:${pM>=80?'var(--g2)':pM>=60?'var(--go2)':'var(--r2)'}"></div></div>
+      <div style="font-family:var(--fm);font-size:10px;color:var(--t3);margin-top:4px">${qM} questões respondidas</div>
+    </div>`;
+  }).join('');
+
   cont.innerHTML=`<div class="rel-grid">
     ${[{icon:'📝',val:q,lbl:'Total de questões',cor:'var(--b3c)'},{icon:'🎯',val:pct+'%',lbl:'Taxa de acerto',cor:'var(--g3)'},{icon:'📚',val:aulasConcl,lbl:'Aulas concluídas',cor:'var(--p3)'},{icon:'🔄',val:revPend,lbl:'Revisões pendentes',cor:'var(--go3)'},{icon:'🔥',val:S.streak,lbl:'Sequência atual',cor:'var(--o2)'},{icon:'⭐',val:fmt(S.xp),lbl:'XP total',cor:'var(--go3)'}].map(c=>`<div class="rel-card"><div class="rel-icon">${c.icon}</div><div class="rel-val" style="color:${c.cor}">${c.val}</div><div class="rel-lbl">${c.lbl}</div></div>`).join('')}
   </div>
   <div style="background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:24px">
     <div style="font-family:var(--fh);font-size:16px;font-weight:700;margin-bottom:16px">📊 Desempenho por matéria</div>
-    <div class="dp-row" style="margin-bottom:8px"><div class="dp-nome">Direito Constitucional — Aula 00</div><div class="dp-pct" style="color:${pct>=80?'var(--g3)':pct>=60?'var(--go3)':'var(--r2)'}">${pct}%</div></div>
-    <div class="dp-bar"><div class="dp-fill" style="width:${pct}%;background:${pct>=80?'var(--g2)':pct>=60?'var(--go2)':'var(--r2)'}"></div></div>
-    <div style="font-family:var(--fm);font-size:11px;color:var(--t3);margin-top:6px">${q} questões respondidas</div>
+    ${desempMateria||'<div style="font-family:var(--fm);font-size:12px;color:var(--t3)">Responda questões para ver o desempenho aqui.</div>'}
   </div>`;
 }
 
@@ -3292,8 +3330,10 @@ function updateDash(){
   const q=S.questoes,a=S.acertos,pct=q>0?Math.round(a/q*100)+'%':'—';
   set('m-q',q);set('m-ac',pct);set('m-rev',S.cardsFeitos);
   set('m-str',S.streak);set('streak-val',S.streak);
-  const dcQ=S.qTema['dc_0']||0,dcA=S.acTema['dc_0']||0;
-  const dcPct=dcQ>0?Math.round(dcA/dcQ*100):0;
+  // Métricas dinâmicas — todas as matérias
+  let totalQ=0, totalA=0;
+  Object.keys(S.qTema).forEach(k=>{totalQ+=S.qTema[k]||0;totalA+=S.acTema[k]||0;});
+  const dcPct=totalQ>0?Math.round(totalA/totalQ*100):0;
   set('dc-q',dcQ);set('dc-ac',dcQ>0?dcPct+'%':'—');
   set('dc-rev',S.cardsFeitos);
   const hH=Math.floor(cronHoje/3600),mH=Math.floor((cronHoje%3600)/60);
@@ -3307,9 +3347,8 @@ function updateDash(){
   renderAtividades();
   // Atualizar progresso de todas as matérias desbloqueadas
   Object.keys(AULAS).forEach(mat=>{
-    if(AULAS[mat].length>0) atualizarProgMateria(mat);
+    if(AULAS[mat].length>0){ atualizarProgMateria(mat); atualizarUlt(mat); }
   });
-  atualizarUlt('dc');
 }
 
 function atualizarAssessor(){
@@ -3333,7 +3372,9 @@ function atualizarAssessor(){
 
 function renderDesempPanel(){
   const panel=g('desemp-panel');if(!panel)return;
-  const q=S.qTema['dc_0']||0,a=S.acTema['dc_0']||0;
+  // Totais de todas as matérias
+  let q=0,a=0;
+  Object.keys(S.qTema).forEach(k=>{q+=S.qTema[k]||0;a+=S.acTema[k]||0;});
   const pct=q>0?Math.round(a/q*100):0;
   if(q===0){panel.innerHTML='<div style="font-family:var(--fm);font-size:12px;color:var(--t3);text-align:center;padding:20px">Responda questões para ver seu desempenho.</div>';return;}
   panel.innerHTML=`<div class="dp-item"><div class="dp-row"><div class="dp-nome">Normas Constitucionais — Aula 00</div><div class="dp-pct" style="color:${pct>=80?'var(--g3)':pct>=60?'var(--go3)':'var(--r2)'}">${pct}%</div></div><div class="dp-bar"><div class="dp-fill" style="width:${pct}%;background:${pct>=80?'var(--g2)':pct>=60?'var(--go2)':'var(--r2)'}"></div></div><div style="font-family:var(--fm);font-size:10px;color:var(--t3);margin-top:5px">${q} questões</div></div>`;
@@ -3394,7 +3435,7 @@ function coletarDados(){
     cron_data:gl('cron_data')||'{}',
     revisoes:gl('revisoes')||'[]',desafios:gl('desafios')||'[]',
     todas_ativ:gl('todas_ativ')||'[]',
-    aula_concl_dc_0:gl('aula_concl_dc_0')||null,
+    aulasConcl:(()=>{const ac={};Object.keys(AULAS).forEach(m=>AULAS[m].forEach((_,i)=>{const v=gl(`aula_concl_${m}_${i}`);if(v)ac[`${m}_${i}`]=v;}));return JSON.stringify(ac);})(),
     anki_state:gl('anki_state')||'{}',meta_h:gl('meta_h')||'2',
     planos,mastery,updated_at:new Date().toISOString()
   };
@@ -3409,7 +3450,7 @@ function aplicarDados(d){
   if(d.revisoes)ls('revisoes',d.revisoes);
   if(d.desafios)ls('desafios',d.desafios);
   if(d.todas_ativ)ls('todas_ativ',d.todas_ativ);
-  if(d.aula_concl_dc_0)ls('aula_concl_dc_0',d.aula_concl_dc_0);
+  if(d.aulasConcl){try{const ac=JSON.parse(d.aulasConcl);Object.entries(ac).forEach(([k,v])=>ls(`aula_concl_${k}`,v));}catch(e){}}
   if(d.anki_state)ls('anki_state',d.anki_state);
   if(d.meta_h)ls('meta_h',d.meta_h);
   if(d.planos)Object.entries(d.planos).forEach(([k,v])=>{if(k.startsWith('est_'))ls(k,v);else ls(`plano_${k}`,v);});
@@ -3512,7 +3553,7 @@ atualizarBadgeRev();
 updateDash();
 renderFiltrosTema();
 verificarAtivAtrasadas();
-atualizarUlt('dc');
+Object.keys(AULAS).forEach(m=>atualizarUlt(m));
 
 // PWA — registrar service worker
 if('serviceWorker' in navigator){
