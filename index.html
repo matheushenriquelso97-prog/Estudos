@@ -2265,7 +2265,8 @@ function atualizarXP(){
   set('sb-pct', pct+'%');
   set('sb-xp-fill', null, 'width', pct+'%');
   set('sb-xp-info', `XP ${fmt(S.xp)} / ${fmt(teto)}`);
-  set('sb-xp-teto', `Teto: ${fmt(teto)} · ${Object.values(AULAS).reduce((a,b)=>a+b.length,0)} aula(s) disponível(is)`);
+  const aulasTot = Object.values(window.AULAS||AULAS).reduce((a,b)=>a+b.length,0);
+  set('sb-xp-teto', `Teto: ${fmt(teto)} · ${aulasTot} aula(s) disponível(is)`);
   set('sb-prof-nivel', 'Nível ' + nivel);
   ls('user_nivel', nivel);
 }
@@ -3568,10 +3569,12 @@ renderAtividades();
 renderChartBars();
 renderCalMini();
 atualizarBadgeRev();
+// updateDash DEPOIS do inicializarConteudo para que window.AULAS esteja pronto
 updateDash();
 renderFiltrosTema();
+renderFiltrosMateria();
 verificarAtivAtrasadas();
-Object.keys(AULAS).forEach(m=>atualizarUlt(m));
+Object.keys(window.AULAS||AULAS).forEach(m=>atualizarUlt(m));
 
 // PWA — registrar service worker
 if('serviceWorker' in navigator){
