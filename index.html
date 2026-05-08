@@ -2221,7 +2221,7 @@ window.MODELO = 'claude-sonnet-4-5';
 let API_KEY = '';
 let cronAtivo = false, cronSeg = 0, cronHoje = 0, cronTimer = null;
 let calMes = new Date();
-let matQ = 'dc', temaQ = 0;
+let matQ = null, temaQ = 0;
 let qGabarito = null, qLoading = false;
 let ankiQueue = [], ankiConfianca = null, ankiFlipped = false;
 let desafios = [];
@@ -2772,6 +2772,7 @@ function setMatQ(mat,btn){
   renderFiltrosTema();
 }
 function renderFiltrosTema(){
+  if(!matQ){ g('filtros-tema').innerHTML=''; updateDesemp(); return; }
   const temas=TEMAS[matQ]||[];
   g('filtros-tema').innerHTML=temas.map((t,i)=>`<button class="filtro-btn ${i===temaQ?'active':''}" onclick="setTema(${i},this)">${t.nome}</button>`).join('');
   updateDesemp();
@@ -2782,7 +2783,7 @@ function setTema(i,btn){
   btn.classList.add('active');
   updateDesemp(); gerarQuestao();
 }
-function initQ(){ matQ='dc'; modalidade='ce'; renderFiltrosTema(); }
+function initQ(){ modalidade='ce'; renderFiltrosTema(); }
 
 // ===========================================
 // STREAMING
