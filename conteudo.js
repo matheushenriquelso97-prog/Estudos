@@ -5,8 +5,6 @@
 // Para adicionar aula: entregue aulaNN.js + este arquivo atualizado
 // ===========================================
 
-window.MODELO = 'claude-sonnet-4-5';
-
 window.MATERIAS = {
   // CONHECIMENTO BÁSICO
   dc:  {nome:'Direito Constitucional',        tipo:'basico',    cor:'var(--p2)'},
