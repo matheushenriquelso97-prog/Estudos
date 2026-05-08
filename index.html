@@ -1012,6 +1012,12 @@ tr:last-child td{border-bottom:none;}
   </div>
 </div>
 
+<script>
+// Helpers globais — devem existir antes de qualquer script externo
+window.g  = function(id){ return document.getElementById(id); };
+window.gl = function(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } };
+window.ls = function(k,v){ try{ localStorage.setItem(k,typeof v==='object'?JSON.stringify(v):String(v)); }catch(e){} };
+</script>
 <script src="conteudo.js"></script>
 <script src="dc-aula00.js"></script>
 <script src="dc-aula01.js"></script>
