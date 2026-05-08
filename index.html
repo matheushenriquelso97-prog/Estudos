@@ -1025,27 +1025,11 @@ window.ls = function(k,v){ try{ localStorage.setItem(k,typeof v==='object'?JSON.
 // ===========================================
 // CONSTANTES
 // ===========================================
-const MODELO = 'claude-sonnet-4-5';
 
 // AULAS INSERIDAS NO HUB — cada aula inserida = +1.000 no teto de XP
 // Quando adicionar Aula 01, faça: AULAS.dc.push('Aula 01 — ...')
 // O sistema recalcula o teto automaticamente.
 
-
-const TEMAS = {
-  dc: [
-    {
-      id: 'dc_0',
-      nome: 'Aula 00 — Normas · Hierarquia · Poder Constituinte',
-      ctx: `Eficácia Plena: direta, imediata, integral — autoaplicável, não restringível. Eficácia Contida (Prospectiva): direta, imediata, possivelmente não integral — nasce plena mas pode ser restringida por lei; é autoaplicável. Eficácia Limitada: indireta, mediata, reduzida — não autoaplicável, depende de lei, mas gera efeito negativo (revoga leis contrárias) e vinculativo (obriga legislador). Maria Helena Diniz: absoluta (pétreas), plena, relativa restringível (=contida), relativa complementável (=limitada). Hierarquia: Constitucional = originárias + ECs + tratados DH §3 art.5 (3/5, 2 turnos, cada Casa). Supralegal = tratados DH rito ordinário (Pacto São José — SV 25 depositário infiel). Legal = LC, LO, MP. Infralegal = decretos regulamentares. NÃO há hierarquia entre LC e LO nem entre leis federal/estadual/municipal — é repartição de competências. PCO: político, inicial, incondicionado, permanente, ilimitado juridicamente, autônomo. PCD reformador (ECs — 3/5 em 2 turnos cada Casa), decorrente (Estados — Constituições Estaduais; Municípios fazem Lei Orgânica, NÃO têm PC decorrente), revisor (exaurido — ADCT art.3), difuso (mutação constitucional — ADI 4277 união homoafetiva, SV 25). ADI 815: STF rejeita Otto Bachof — não há hierarquia entre normas originárias. Art. 1º SOCIDIVAPLU (Soberania, Cidadania, Dignidade, Valores sociais, Pluralismo). Art. 3º: ERRADICAR pobreza (NÃO 'reduzir' ou 'diminuir' pobreza!) e REDUZIR desigualdades. Art. 60 §4º cláusulas pétreas: forma federativa, voto direto/secreto/universal/periódico, separação dos Poderes, direitos e garantias individuais.`
-    },
-    {
-      id: 'dc_1',
-      nome: 'Aula 01 — Gerações e Características dos Direitos Fundamentais',
-      ctx: `Direitos do homem (plano jusnaturalista, sem positivação) x Direitos fundamentais (positivados na CF, Título II arts.5-17) x Direitos humanos (positivados em tratados internacionais). Direitos fundamentais = bens protegidos (vida, liberdade, propriedade). Garantias fundamentais = instrumentos de proteção (habeas corpus). Gerações: 1ª=liberdade, obrigação de não fazer, direitos civis e políticos (propriedade, locomoção, associação, reunião). 2ª=igualdade, obrigação de fazer, direitos sociais econômicos e culturais (educação, saúde, trabalho), normas programáticas. 3ª=fraternidade/solidariedade, direitos difusos e coletivos transindividuais (consumidor, meio ambiente, desenvolvimento). 4ª=Paulo Bonavides: democracia, informação, pluralismo (globalização); Norberto Bobbio: engenharia genética. 5ª=direito à paz. Lema Revolução Francesa: Liberdade-Igualdade-Fraternidade (1ª,2ª,3ª gerações). PEGADINHA: gerações não se substituem, se acumulam — por isso doutrina prefere "dimensões". STF MS 22.164-SP Celso de Mello: consagra gerações. Teoria dos Status (Jellinek): passivo=sujeição ao Estado; negativo=liberdade perante Estado (liberdade de expressão); positivo=exigir prestação do Estado (educação básica 4-17 anos); ativo=direitos políticos (voto). Características: universalidade (EXCEÇÃO: direitos de grupos específicos como trabalhadores); historicidade (mutáveis); indivisibilidade; inalienabilidade (intransferíveis); imprescritibilidade (personalíssimos); irrenunciabilidade (EXCEÇÃO: autolimitação voluntária no caso concreto, ex: reality shows); relatividade/limitabilidade=MAIS COBRADA, NÃO HÁ DIREITO ABSOLUTO, conflito resolve por concordância prática/harmonização; complementaridade; concorrência; efetividade; proibição do retrocesso/efeito cliquet. Art.60§4IV: direitos fundamentais são cláusulas pétreas. Teoria interna (absoluta): núcleo essencial insuscetível de violação independente do caso. Teoria externa (relativa): limites por ponderação e proporcionalidade no caso concreto. Limites dos limites: proporcionalidade em adequação+necessidade+proporcionalidade em sentido estrito. Eficácia vertical=Estado x indivíduo. Eficácia horizontal=particulares entre si (STF RE 201.819/RJ Ellen Gracie 2005, tese que prevalece no Brasil). Eficácia diagonal=relações assimétricas entre particulares (trabalho). Teoria indireta e mediata=via cláusulas gerais direito privado (incompatível art.5§1CF). Teoria direta e imediata=prevalece no Brasil. Catálogo CF/88 Título II: a)direitos deveres individuais e coletivos art.5; b)direitos sociais arts.6-11; c)direitos nacionalidade arts.12-13; d)direitos políticos arts.14-16; e)partidos políticos art.17. TODAS são espécies do gênero direitos fundamentais. Direitos não catalogados: espalhados no texto (ex: meio ambiente art.225, anterioridade tributária art.150,III,b). Art.5§2: direitos não excluem outros decorrentes do regime, princípios e tratados internacionais.`
-    }
-  ]
-};
 
 
 

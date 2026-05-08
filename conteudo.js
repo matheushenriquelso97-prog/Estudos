@@ -5,7 +5,9 @@
 // Para adicionar aula: entregue aulaNN.js + este arquivo atualizado
 // ===========================================
 
-const MATERIAS = {
+window.MODELO = 'claude-sonnet-4-5';
+
+window.MATERIAS = {
   // CONHECIMENTO BÁSICO
   dc:  {nome:'Direito Constitucional',        tipo:'basico',    cor:'var(--p2)'},
   da:  {nome:'Direito Administrativo',         tipo:'basico',    cor:'var(--b2c)'},
@@ -40,7 +42,7 @@ const MATERIAS = {
 // AULAS — cresce conforme PDFs chegam
 // Cada entrada = +1.000 no teto de XP
 // ===========================================
-const AULAS = {
+window.AULAS = {
   dc:  ['Aula 00 — Normas Constitucionais e Poder Constituinte','Aula 01 — Gerações e Características dos Direitos Fundamentais'],
   da:  [], lp:  [], rl:  [], ap:  [], ti:  [], ea:  [], mf:  [],
   cg:  [], cp:  [], afo: [], lrf: [], df:  [], dt:  [], lt:  [],
@@ -51,7 +53,7 @@ const AULAS = {
 // ===========================================
 // TEMAS — contexto para geração de questões IA
 // ===========================================
-const TEMAS = {
+window.TEMAS = {
   dc: [
     {id:'dc_0',nome:'Aula 00 — Normas · Hierarquia · Poder Constituinte',ctx:`Eficácia Plena: direta, imediata, integral — autoaplicável, não restringível. Eficácia Contida: nasce plena, pode ser restringida por lei. Eficácia Limitada: indireta, mediata, reduzida — gera efeito negativo e vinculativo. Maria Helena Diniz: absoluta, plena, relativa restringível (=contida), relativa complementável (=limitada). Hierarquia: Constitucional = originárias + ECs + tratados DH §3 art.5. Supralegal = tratados DH rito ordinário (SV 25). Legal = LC, LO, MP. Infralegal = decretos. NÃO há hierarquia entre LC e LO nem entre leis federal/estadual/municipal. PCO: político, inicial, incondicionado, permanente, ilimitado juridicamente. PCD: reformador (ECs 3/5 em 2 turnos), decorrente (Estados; Municípios=Lei Orgânica, NÃO têm PC decorrente), revisor (exaurido), difuso (mutação constitucional). ADI 815: rejeita Otto Bachof. SOCIDIVAPLU art.1. ERRADICAR pobreza, REDUZIR desigualdades art.3. Cláusulas pétreas art.60§4.`},
     {id:'dc_1',nome:'Aula 01 — Gerações e Características dos Direitos Fundamentais',ctx:`Direitos do homem (jusnaturalista) x Direitos fundamentais (CF, Título II) x Direitos humanos (tratados internacionais). Direitos=bens protegidos; Garantias=instrumentos de proteção (habeas corpus). Gerações: 1ª=liberdade/não fazer/civis e políticos; 2ª=igualdade/fazer/sociais econômicos culturais/programáticas; 3ª=fraternidade/difusos e coletivos; 4ª=Bonavides:democracia,informação,pluralismo / Bobbio:engenharia genética; 5ª=paz. Lema Revolução Francesa. Gerações se ACUMULAM — doutrina prefere dimensões. STF MS 22.164-SP. Jellinek: passivo=sujeição; negativo=liberdade; positivo=prestação; ativo=direitos políticos. Características: universalidade (exceção:grupos específicos); historicidade; indivisibilidade; inalienabilidade; imprescritibilidade; irrenunciabilidade (exceção:autolimitação voluntária); relatividade=MAIS COBRADA/NÃO HÁ DIREITO ABSOLUTO/concordância prática; efeito cliquet. Teoria interna(absoluta) x externa(relativa/ponderação). Limites dos limites: adequação+necessidade+proporcionalidade. Eficácia vertical x horizontal(STF RE 201.819/RJ, teoria direta e imediata prevalece) x diagonal. Catálogo Título II: 5 categorias, TODAS espécies do gênero. Art.5§2: sistema aberto.`},
@@ -65,7 +67,7 @@ const TEMAS = {
 // ===========================================
 // CARDS — flashcards de todas as matérias
 // ===========================================
-const CARDS = [
+window.CARDS = [
   {id:'dc001',q:'Quais os três tipos de eficácia das normas (José Afonso da Silva)?',a:'<strong>Plena</strong>: direta, imediata, integral — não restringível.<br><strong>Contida</strong>: nasce plena, pode ser restringida por lei.<br><strong>Limitada</strong>: indireta, mediata — gera efeito negativo e vinculativo.',mat:'DC · Aula 00'},
   {id:'dc002',q:'Qual o efeito IMEDIATO das normas de eficácia LIMITADA?',a:'<strong>Efeito negativo</strong>: revoga leis contrárias e proíbe novas.<br><strong>Efeito vinculativo</strong>: obriga o legislador a regulamentar.<br>Limitada ≠ sem efeito!',mat:'DC · Aula 00'},
   {id:'dc003',q:'Qual o mnemônico para os Fundamentos da República (Art. 1º CF/88)?',a:'<strong>SOCIDIVAPLU</strong>:<br>SO→Soberania · CI→Cidadania · DI→Dignidade · VA→Valores sociais · PLU→Pluralismo político',mat:'DC · Aula 00'},
