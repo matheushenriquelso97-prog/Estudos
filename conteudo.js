@@ -90,8 +90,8 @@ const CARDS = [
 // INICIALIZAR — adicione novas aulas aqui
 // ===========================================
 function inicializarConteudo(){
-  inserirAula('dc', 0);
-  inserirAula('dc', 1);
+  if(typeof inserirAula_dc0==='function') inserirAula_dc0();
+  if(typeof inserirAula_dc1==='function') inserirAula_dc1();
   restaurarBotoesConteudo();
 }
 
