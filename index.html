@@ -3451,6 +3451,8 @@ function aplicarDados(d){
   if(d.desafios)ls('desafios',d.desafios);
   if(d.todas_ativ)ls('todas_ativ',d.todas_ativ);
   if(d.aulasConcl){try{const ac=JSON.parse(d.aulasConcl);Object.entries(ac).forEach(([k,v])=>ls(`aula_concl_${k}`,v));}catch(e){}}
+  // Compatibilidade com formato antigo (aula_concl_dc_0 direto)
+  Object.keys(d).forEach(k=>{if(k.startsWith('aula_concl_')&&d[k])ls(k,d[k]);});
   if(d.anki_state)ls('anki_state',d.anki_state);
   if(d.meta_h)ls('meta_h',d.meta_h);
   if(d.planos)Object.entries(d.planos).forEach(([k,v])=>{if(k.startsWith('est_'))ls(k,v);else ls(`plano_${k}`,v);});
@@ -3460,7 +3462,22 @@ function aplicarDados(d){
 }
 
 async function salvarCloud(){if(!fireUID||!window._fb)return;try{await window._fb.setDoc(window._fb.doc(window._fb.db,'usuarios',fireUID),coletarDados());}catch(e){console.warn('Sync:',e.message);}}
-async function carregarCloud(){if(!fireUID||!window._fb)return;try{const s=await window._fb.getDoc(window._fb.doc(window._fb.db,'usuarios',fireUID));if(s.exists())aplicarDados(s.data());else{await salvarCloud();notif('☁️ Dados enviados para a nuvem!','green');}}catch(e){notif('Aviso: erro ao carregar nuvem.','gold');}}
+async function carregarCloud(){
+  if(!fireUID||!window._fb)return;
+  try{
+    const s=await window._fb.getDoc(window._fb.doc(window._fb.db,'usuarios',fireUID));
+    if(s.exists()) aplicarDados(s.data());
+    else{ await salvarCloud(); notif('☁️ Dados enviados para a nuvem!','green'); }
+  }catch(e){
+    // Tentar novamente após 3 segundos silenciosamente
+    setTimeout(async()=>{
+      try{
+        const s=await window._fb.getDoc(window._fb.doc(window._fb.db,'usuarios',fireUID));
+        if(s.exists()) aplicarDados(s.data());
+      }catch(e2){ console.warn('Cloud sync falhou:', e2.message); }
+    }, 3000);
+  }
+}
 
 window.addEventListener('beforeunload',()=>{if(fireUID)salvarCloud();salvarCron();});
 window.addEventListener('visibilitychange',()=>{if(document.hidden&&fireUID)salvarCloud();});
