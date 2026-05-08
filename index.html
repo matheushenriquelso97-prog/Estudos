@@ -206,6 +206,21 @@ a{color:inherit;text-decoration:none;}
 .mat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:16px;}
 
 /* CARD MATÉRIA */
+
+/* DONUT PROGRESS */
+.donut-wrap{position:relative;width:54px;height:54px;flex-shrink:0;}
+.donut-svg{width:54px;height:54px;transform:rotate(-90deg);}
+.donut-bg{fill:none;stroke:var(--b1);stroke-width:5;}
+.donut-fill{fill:none;stroke-width:5;stroke-linecap:round;transition:stroke-dashoffset 1.2s ease;}
+.donut-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:11px;font-weight:800;}
+
+/* MCARD ATUALIZADO */
+.mcard-head-row{display:flex;align-items:center;gap:14px;padding:16px 16px 12px;}
+.mcard-info{flex:1;min-width:0;}
+.mcard-name{font-family:var(--fh);font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mcard-desc{font-family:var(--fm);font-size:9px;color:var(--t3);letter-spacing:1px;text-transform:uppercase;margin:3px 0 8px;}
+.mcard-status{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:99px;font-family:var(--fm);font-size:10px;font-weight:600;}
+
 .mcard{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);overflow:hidden;transition:all .22s;position:relative;}
 .mcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--mc-cor,var(--purple));opacity:.5;transition:opacity .22s;}
 .mcard:hover{border-color:var(--b2);transform:translateY(-3px);box-shadow:0 12px 34px rgba(0,0,0,.4);}
@@ -691,11 +706,22 @@ tr:last-child td{border-bottom:none;}
     <div class="mat-aba-content active" id="aba-basico">
       <div class="mat-grid">
         <div class="mcard" style="--mc-cor:var(--p2)">
-          <div class="mcard-head">
-            <div class="mcard-row"><div class="mcard-name">Direito Constitucional</div><div class="mcard-pct" id="dc-pct" style="color:var(--p2)">0%</div></div>
-            <div class="mcard-desc">CF/88 · Direitos Fundamentais · Organização</div>
-            <div class="mcard-bar"><div class="mcard-bar-fill" id="dc-bar" style="width:0%;color:var(--p2)"></div></div>
-            <div class="mcard-status st-atencao" id="dc-status">⚡ Atenção</div>
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="dc-donut" cx="27" cy="27" r="22"
+          stroke="var(--p2)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="dc-pct" style="color:var(--p2)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Direito Constitucional</div>
+              <div class="mcard-desc">CF/88 · Direitos Fundamentais</div>
+              <div class="mcard-status st-atencao" id="dc-status">⚡ Iniciar</div>
+            </div>
           </div>
           <div class="mcard-stats">
             <div class="mcard-stat"><div class="mcard-stat-val" id="dc-q" style="color:var(--b3c)">0</div><div class="mcard-stat-lbl">Questões</div></div>
@@ -711,16 +737,498 @@ tr:last-child td{border-bottom:none;}
             <button class="mcard-btn" onclick="showView('relatorios')">📊 Stats</button>
           </div>
         </div>
-        <div class="mcard locked" style="--mc-cor:var(--b2c)"><div class="mcard-head"><div class="mcard-row"><div class="mcard-name">Direito Administrativo</div></div><div class="mcard-desc">Atos · Licitações · Contratos</div><div class="mcard-bar"><div class="mcard-bar-fill" style="width:0%"></div></div></div><div class="mcard-lock">🔒 Traga as aulas para desbloquear</div></div>
-        <div class="mcard locked" style="--mc-cor:var(--g2)"><div class="mcard-head"><div class="mcard-row"><div class="mcard-name">Direito Financeiro</div></div><div class="mcard-desc">Orçamento · LRF · MCASP</div><div class="mcard-bar"><div class="mcard-bar-fill" style="width:0%"></div></div></div><div class="mcard-lock">🔒 Traga as aulas para desbloquear</div></div>
-        <div class="mcard locked" style="--mc-cor:var(--t2c)"><div class="mcard-head"><div class="mcard-row"><div class="mcard-name">Controle Externo</div></div><div class="mcard-desc">TCU · TCE · Fiscalização</div><div class="mcard-bar"><div class="mcard-bar-fill" style="width:0%"></div></div></div><div class="mcard-lock">🔒 Traga as aulas para desbloquear</div></div>
+<div class="mcard locked" style="--mc-cor:var(--b2c)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="da-donut" cx="27" cy="27" r="22"
+          stroke="var(--b2c)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="da-pct" style="color:var(--b2c)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Direito Administrativo</div>
+              <div class="mcard-desc">Atos · Licitações · Contratos</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--g2)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="lp-donut" cx="27" cy="27" r="22"
+          stroke="var(--g2)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="lp-pct" style="color:var(--g2)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Língua Portuguesa</div>
+              <div class="mcard-desc">Gramática · Interpretação · Texto</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--go2)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="rl-donut" cx="27" cy="27" r="22"
+          stroke="var(--go2)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="rl-pct" style="color:var(--go2)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Raciocínio Lógico e Matemático</div>
+              <div class="mcard-desc">Lógica · Probabilidade · Sequências</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--t2c)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="ap-donut" cx="27" cy="27" r="22"
+          stroke="var(--t2c)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="ap-pct" style="color:var(--t2c)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Administração Pública</div>
+              <div class="mcard-desc">Gestão · Reforma · Modelos</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--o2)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="ti-donut" cx="27" cy="27" r="22"
+          stroke="var(--o2)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="ti-pct" style="color:var(--o2)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Tecnologia da Informação</div>
+              <div class="mcard-desc">Segurança · Redes · Sistemas</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--r2)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="ea-donut" cx="27" cy="27" r="22"
+          stroke="var(--r2)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="ea-pct" style="color:var(--r2)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Estatística Aplicada</div>
+              <div class="mcard-desc">Probabilidade · Inferência · Testes</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--go3)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="mf-donut" cx="27" cy="27" r="22"
+          stroke="var(--go3)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="mf-pct" style="color:var(--go3)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Matemática Financeira</div>
+              <div class="mcard-desc">Juros · Amortização · Fluxo de Caixa</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
       </div>
     </div>
     <div class="mat-aba-content" id="aba-especifico">
       <div class="mat-grid">
-        <div class="mcard locked" style="--mc-cor:var(--go2)"><div class="mcard-head"><div class="mcard-row"><div class="mcard-name">Contabilidade Pública</div></div><div class="mcard-desc">CASP · MCASP · NBC TSP</div><div class="mcard-bar"><div class="mcard-bar-fill" style="width:0%"></div></div></div><div class="mcard-lock">🔒 Traga as aulas para desbloquear</div></div>
-        <div class="mcard locked" style="--mc-cor:var(--o2)"><div class="mcard-head"><div class="mcard-row"><div class="mcard-name">AFO</div></div><div class="mcard-desc">PPA · LDO · LOA · Créditos</div><div class="mcard-bar"><div class="mcard-bar-fill" style="width:0%"></div></div></div><div class="mcard-lock">🔒 Traga as aulas para desbloquear</div></div>
-        <div class="mcard locked" style="--mc-cor:var(--g2)"><div class="mcard-head"><div class="mcard-row"><div class="mcard-name">Contabilidade Geral</div></div><div class="mcard-desc">Balanços · DRE · NBC TG</div><div class="mcard-bar"><div class="mcard-bar-fill" style="width:0%"></div></div></div><div class="mcard-lock">🔒 Traga as aulas para desbloquear</div></div>
+        <div class="mcard" style="--mc-cor:var(--g3)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="cp-donut" cx="27" cy="27" r="22"
+          stroke="var(--g3)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="cp-pct" style="color:var(--g3)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Contabilidade Pública</div>
+              <div class="mcard-desc">CASP · NBC TSP · MCASP</div>
+              <div class="mcard-status st-atencao" id="cp-status">⚡ Iniciar</div>
+            </div>
+          </div>
+          <div class="mcard-stats">
+            <div class="mcard-stat"><div class="mcard-stat-val" id="cp-q" style="color:var(--b3c)">0</div><div class="mcard-stat-lbl">Questões</div></div>
+            <div class="mcard-stat"><div class="mcard-stat-val" id="cp-ac" style="color:var(--g3)">—</div><div class="mcard-stat-lbl">Acerto</div></div>
+            <div class="mcard-stat"><div class="mcard-stat-val" id="cp-rev" style="color:var(--go3)">0</div><div class="mcard-stat-lbl">Revisões</div></div>
+            <div class="mcard-stat"><div class="mcard-stat-val" id="cp-tempo" style="color:var(--p3)">0m</div><div class="mcard-stat-lbl">Estudado</div></div>
+          </div>
+          <div class="mcard-ult">Último assunto: <span id="cp-ult">Nenhum ainda</span></div>
+          <div class="mcard-btns">
+            <button class="mcard-btn estudar" onclick="showMateria('cp')">📚 Estudar</button>
+            <button class="mcard-btn" onclick="iniciarQ('cp')">📝 Questões</button>
+            <button class="mcard-btn" onclick="showView('anki')">🔄 Revisar</button>
+            <button class="mcard-btn" onclick="showView('relatorios')">📊 Stats</button>
+          </div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--go2)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="cg-donut" cx="27" cy="27" r="22"
+          stroke="var(--go2)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="cg-pct" style="color:var(--go2)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Contabilidade Geral e Societária</div>
+              <div class="mcard-desc">Balanços · DRE · NBC TG</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--b3c)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="afo-donut" cx="27" cy="27" r="22"
+          stroke="var(--b3c)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="afo-pct" style="color:var(--b3c)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Adm. Financeira e Orçamentária</div>
+              <div class="mcard-desc">PPA · LDO · LOA · Créditos</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--r2)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="lrf-donut" cx="27" cy="27" r="22"
+          stroke="var(--r2)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="lrf-pct" style="color:var(--r2)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Lei de Responsabilidade Fiscal</div>
+              <div class="mcard-desc">LRF · Limites · Transparência</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--p3)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="ce-donut" cx="27" cy="27" r="22"
+          stroke="var(--p3)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="ce-pct" style="color:var(--p3)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Controle Externo</div>
+              <div class="mcard-desc">TCU · TCE · Fiscalização</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--g2)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="ag-donut" cx="27" cy="27" r="22"
+          stroke="var(--g2)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="ag-pct" style="color:var(--g2)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Auditoria Governamental</div>
+              <div class="mcard-desc">Planejamento · Execução · Relatório</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--b2c)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="ai-donut" cx="27" cy="27" r="22"
+          stroke="var(--b2c)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="ai-pct" style="color:var(--b2c)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Auditoria Independente</div>
+              <div class="mcard-desc">NBC TA · Parecer · Evidências</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--go3)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="df-donut" cx="27" cy="27" r="22"
+          stroke="var(--go3)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="df-pct" style="color:var(--go3)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Direito Financeiro</div>
+              <div class="mcard-desc">Orçamento · LRF · MCASP</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--t2c)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="dt-donut" cx="27" cy="27" r="22"
+          stroke="var(--t2c)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="dt-pct" style="color:var(--t2c)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Direito Tributário</div>
+              <div class="mcard-desc">CTN · Tributos · Competência</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--o2)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="lt-donut" cx="27" cy="27" r="22"
+          stroke="var(--o2)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="lt-pct" style="color:var(--o2)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Legislação Tributária</div>
+              <div class="mcard-desc">IR · IPI · ICMS · ISS</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--p2)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="adc-donut" cx="27" cy="27" r="22"
+          stroke="var(--p2)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="adc-pct" style="color:var(--p2)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Análise das Dem. Contábeis</div>
+              <div class="mcard-desc">Índices · Liquidez · Rentabilidade</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--g3)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="fp-donut" cx="27" cy="27" r="22"
+          stroke="var(--g3)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="fp-pct" style="color:var(--g3)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Finanças Públicas</div>
+              <div class="mcard-desc">Receita · Despesa · Dívida Pública</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--b3c)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="nbc-donut" cx="27" cy="27" r="22"
+          stroke="var(--b3c)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="nbc-pct" style="color:var(--b3c)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Normas Bras. de Contabilidade</div>
+              <div class="mcard-desc">NBC TG · NBC TSP · CFC</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--go2)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="gp-donut" cx="27" cy="27" r="22"
+          stroke="var(--go2)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="gp-pct" style="color:var(--go2)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Gestão Pública</div>
+              <div class="mcard-desc">Planejamento · Controle · Avaliação</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--r2)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="dp-donut" cx="27" cy="27" r="22"
+          stroke="var(--r2)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="dp-pct" style="color:var(--r2)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Direito Previdenciário</div>
+              <div class="mcard-desc">RGPS · RPPS · Benefícios</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--p3)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="pa-donut" cx="27" cy="27" r="22"
+          stroke="var(--p3)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="pa-pct" style="color:var(--p3)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Dir. Processual Administrativo</div>
+              <div class="mcard-desc">PAD · Recursos · Prescrição</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--g2)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="ep-donut" cx="27" cy="27" r="22"
+          stroke="var(--g2)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="ep-pct" style="color:var(--g2)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Ética no Serviço Público</div>
+              <div class="mcard-desc">Código de Ética · Improbidade</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
+<div class="mcard locked" style="--mc-cor:var(--go3)">
+          <div class="mcard-head-row">
+            <div class="donut-wrap">
+      <svg class="donut-svg" viewBox="0 0 54 54">
+        <circle class="donut-bg" cx="27" cy="27" r="22"/>
+        <circle class="donut-fill" id="cc-donut" cx="27" cy="27" r="22"
+          stroke="var(--go3)"
+          stroke-dasharray="138.2"
+          stroke-dashoffset="138.2"/>
+      </svg>
+      <div class="donut-text" id="cc-pct" style="color:var(--go3)">0%</div>
+    </div>
+            <div class="mcard-info">
+              <div class="mcard-name">Contabilidade de Custos</div>
+              <div class="mcard-desc">Custeio · ABC · Ponto de Equilíbrio</div>
+            </div>
+          </div>
+          <div class="mcard-lock">🔒 Traga as aulas para desbloquear</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1870,10 +2378,13 @@ function atualizarProgMateria(mat){
   let concl=0;
   for(let i=0;i<total;i++) if(gl(`aula_concl_${mat}_${i}`)) concl++;
   const pct = total>0?Math.round(concl/total*100):0;
-  const qT=S.qTema[`${mat}_0`]||0, acT=S.acTema[`${mat}_0`]||0;
+  // Calcular acerto total da matéria (todos os temas)
+  let qT=0, acT=0;
+  Object.keys(S.qTema).forEach(k=>{ if(k.startsWith(mat+'_')){qT+=S.qTema[k]||0; acT+=S.acTema[k]||0;} });
   const acerto=qT>0?Math.round(acT/qT*100):0;
-  const bar=g(`${mat}-bar`);if(bar){bar.style.width=pct+'%';}
-  const pctEl=g(`${mat}-pct`);if(pctEl)pctEl.textContent=pct+'%';
+  // Atualizar donut
+  updateDonut(mat, pct);
+  // Atualizar status
   const stEl=g(`${mat}-status`);
   if(stEl){
     if(acerto>=80){stEl.className='mcard-status st-dominado';stEl.textContent='🏆 Dominado';}
@@ -1881,6 +2392,18 @@ function atualizarProgMateria(mat){
     else if(qT>0){stEl.className='mcard-status st-atencao';stEl.textContent='⚠️ Atenção';}
     else{stEl.className='mcard-status st-fraco';stEl.textContent='🔴 Iniciar';}
   }
+  // Stats
+  const qEl=g(`${mat}-q`); if(qEl) qEl.textContent=qT;
+  const acEl=g(`${mat}-ac`); if(acEl) acEl.textContent=qT>0?acerto+'%':'—';
+}
+
+function updateDonut(mat, pct){
+  const r=22, circ=2*Math.PI*r;
+  const offset=circ-(pct/100*circ);
+  const donut=g(`${mat}-donut`);
+  if(donut) donut.style.strokeDashoffset=offset;
+  const txt=g(`${mat}-pct`);
+  if(txt) txt.textContent=pct+'%';
 }
 
 function atualizarUlt(mat){
@@ -2781,7 +3304,10 @@ function updateDash(){
   renderChartBars();
   atualizarBadgeRev();
   renderAtividades();
-  atualizarProgMateria('dc');
+  // Atualizar progresso de todas as matérias desbloqueadas
+  Object.keys(AULAS).forEach(mat=>{
+    if(AULAS[mat].length>0) atualizarProgMateria(mat);
+  });
   atualizarUlt('dc');
 }
 
