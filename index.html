@@ -732,7 +732,7 @@ tr:last-child td{border-bottom:none;}
       <div class="dc-sb-sub">CF/88 · TCE-PE & ALEPE</div>
       <div class="dc-sb-lbl">Aulas</div>
       <div class="dc-sb-item active" id="dc-sb-0" onclick="showAula(0)"><div class="dc-sb-dot"></div>Aula 00 — Normas · Poder Constituinte</div>
-      <div class="dc-sb-item locked"><div class="dc-sb-dot"></div>Aula 01 — Em breve</div>
+      <div class="dc-sb-item" id="dc-sb-1" onclick="showAula(1)"><div class="dc-sb-dot"></div>Aula 01 — Gerações e Características dos DF</div>
       <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
       <div class="dc-sb-item" onclick="iniciarQ('dc')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
       <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
@@ -740,6 +740,9 @@ tr:last-child td{border-bottom:none;}
     </div>
     <div class="dc-content" id="dc-content">
       <div class="aula-sec active" id="aula-dc-0">
+        <!-- Conteúdo inserido via JS -->
+      </div>
+      <div class="aula-sec" id="aula-dc-1">
         <!-- Conteúdo inserido via JS -->
       </div>
     </div>
@@ -1006,6 +1009,9 @@ tr:last-child td{border-bottom:none;}
   </div>
 </div>
 
+<script src="conteudo.js"></script>
+<script src="dc-aula00.js"></script>
+<script src="dc-aula01.js"></script>
 <script>
 // ===========================================
 // CONSTANTES
@@ -1015,9 +1021,7 @@ const MODELO = 'claude-sonnet-4-5';
 // AULAS INSERIDAS NO HUB — cada aula inserida = +1.000 no teto de XP
 // Quando adicionar Aula 01, faça: AULAS.dc.push('Aula 01 — ...')
 // O sistema recalcula o teto automaticamente.
-const AULAS = {
-  dc: ['Aula 00 — Normas Constitucionais e Poder Constituinte']
-};
+
 
 const TEMAS = {
   dc: [
@@ -1025,20 +1029,16 @@ const TEMAS = {
       id: 'dc_0',
       nome: 'Aula 00 — Normas · Hierarquia · Poder Constituinte',
       ctx: `Eficácia Plena: direta, imediata, integral — autoaplicável, não restringível. Eficácia Contida (Prospectiva): direta, imediata, possivelmente não integral — nasce plena mas pode ser restringida por lei; é autoaplicável. Eficácia Limitada: indireta, mediata, reduzida — não autoaplicável, depende de lei, mas gera efeito negativo (revoga leis contrárias) e vinculativo (obriga legislador). Maria Helena Diniz: absoluta (pétreas), plena, relativa restringível (=contida), relativa complementável (=limitada). Hierarquia: Constitucional = originárias + ECs + tratados DH §3 art.5 (3/5, 2 turnos, cada Casa). Supralegal = tratados DH rito ordinário (Pacto São José — SV 25 depositário infiel). Legal = LC, LO, MP. Infralegal = decretos regulamentares. NÃO há hierarquia entre LC e LO nem entre leis federal/estadual/municipal — é repartição de competências. PCO: político, inicial, incondicionado, permanente, ilimitado juridicamente, autônomo. PCD reformador (ECs — 3/5 em 2 turnos cada Casa), decorrente (Estados — Constituições Estaduais; Municípios fazem Lei Orgânica, NÃO têm PC decorrente), revisor (exaurido — ADCT art.3), difuso (mutação constitucional — ADI 4277 união homoafetiva, SV 25). ADI 815: STF rejeita Otto Bachof — não há hierarquia entre normas originárias. Art. 1º SOCIDIVAPLU (Soberania, Cidadania, Dignidade, Valores sociais, Pluralismo). Art. 3º: ERRADICAR pobreza (NÃO 'reduzir' ou 'diminuir' pobreza!) e REDUZIR desigualdades. Art. 60 §4º cláusulas pétreas: forma federativa, voto direto/secreto/universal/periódico, separação dos Poderes, direitos e garantias individuais.`
+    },
+    {
+      id: 'dc_1',
+      nome: 'Aula 01 — Gerações e Características dos Direitos Fundamentais',
+      ctx: `Direitos do homem (plano jusnaturalista, sem positivação) x Direitos fundamentais (positivados na CF, Título II arts.5-17) x Direitos humanos (positivados em tratados internacionais). Direitos fundamentais = bens protegidos (vida, liberdade, propriedade). Garantias fundamentais = instrumentos de proteção (habeas corpus). Gerações: 1ª=liberdade, obrigação de não fazer, direitos civis e políticos (propriedade, locomoção, associação, reunião). 2ª=igualdade, obrigação de fazer, direitos sociais econômicos e culturais (educação, saúde, trabalho), normas programáticas. 3ª=fraternidade/solidariedade, direitos difusos e coletivos transindividuais (consumidor, meio ambiente, desenvolvimento). 4ª=Paulo Bonavides: democracia, informação, pluralismo (globalização); Norberto Bobbio: engenharia genética. 5ª=direito à paz. Lema Revolução Francesa: Liberdade-Igualdade-Fraternidade (1ª,2ª,3ª gerações). PEGADINHA: gerações não se substituem, se acumulam — por isso doutrina prefere "dimensões". STF MS 22.164-SP Celso de Mello: consagra gerações. Teoria dos Status (Jellinek): passivo=sujeição ao Estado; negativo=liberdade perante Estado (liberdade de expressão); positivo=exigir prestação do Estado (educação básica 4-17 anos); ativo=direitos políticos (voto). Características: universalidade (EXCEÇÃO: direitos de grupos específicos como trabalhadores); historicidade (mutáveis); indivisibilidade; inalienabilidade (intransferíveis); imprescritibilidade (personalíssimos); irrenunciabilidade (EXCEÇÃO: autolimitação voluntária no caso concreto, ex: reality shows); relatividade/limitabilidade=MAIS COBRADA, NÃO HÁ DIREITO ABSOLUTO, conflito resolve por concordância prática/harmonização; complementaridade; concorrência; efetividade; proibição do retrocesso/efeito cliquet. Art.60§4IV: direitos fundamentais são cláusulas pétreas. Teoria interna (absoluta): núcleo essencial insuscetível de violação independente do caso. Teoria externa (relativa): limites por ponderação e proporcionalidade no caso concreto. Limites dos limites: proporcionalidade em adequação+necessidade+proporcionalidade em sentido estrito. Eficácia vertical=Estado x indivíduo. Eficácia horizontal=particulares entre si (STF RE 201.819/RJ Ellen Gracie 2005, tese que prevalece no Brasil). Eficácia diagonal=relações assimétricas entre particulares (trabalho). Teoria indireta e mediata=via cláusulas gerais direito privado (incompatível art.5§1CF). Teoria direta e imediata=prevalece no Brasil. Catálogo CF/88 Título II: a)direitos deveres individuais e coletivos art.5; b)direitos sociais arts.6-11; c)direitos nacionalidade arts.12-13; d)direitos políticos arts.14-16; e)partidos políticos art.17. TODAS são espécies do gênero direitos fundamentais. Direitos não catalogados: espalhados no texto (ex: meio ambiente art.225, anterioridade tributária art.150,III,b). Art.5§2: direitos não excluem outros decorrentes do regime, princípios e tratados internacionais.`
     }
   ]
 };
 
-const CARDS = [
-  {id:'dc001',q:'Quais os três tipos de eficácia das normas (José Afonso da Silva)? Detalhe cada um.',a:'<strong>Plena</strong>: direta, imediata, integral — autoaplicável, não restringível.<br><strong>Contida</strong>: nasce plena, pode ser restringida por lei — autoaplicável.<br><strong>Limitada</strong>: indireta, mediata, reduzida — não autoaplicável, mas gera efeito negativo e vinculativo.',mat:'DC · Aula 00'},
-  {id:'dc002',q:'Qual o efeito IMEDIATO das normas de eficácia LIMITADA, mesmo sem regulamentação?',a:'<strong>Efeito negativo</strong>: revoga leis anteriores contrárias e proíbe novas leis incompatíveis.<br><strong>Efeito vinculativo</strong>: obriga o legislador a regulamentar.<br>Limitada ≠ sem efeito!',mat:'DC · Aula 00'},
-  {id:'dc003',q:'Qual o mnemônico para os Fundamentos da República (Art. 1º CF/88)?',a:'<strong>SOCIDIVAPLU</strong>:<br>SO→Soberania · CI→Cidadania · DI→Dignidade da pessoa humana · VA→Valores sociais do trabalho e livre iniciativa · PLU→Pluralismo político',mat:'DC · Aula 00'},
-  {id:'dc004',q:'A CF/88 visa ERRADICAR ou REDUZIR a pobreza? E as desigualdades?',a:'Art. 3º, III: <strong>ERRADICAR</strong> a pobreza e a marginalização.<br><strong>REDUZIR</strong> as desigualdades sociais e regionais.<br>⚠️ Banca troca "erradicar" por "diminuir/reduzir" — assertiva fica <strong>ERRADA</strong>!',mat:'DC · Aula 00'},
-  {id:'dc005',q:'Existe hierarquia entre Lei Complementar (LC) e Lei Ordinária (LO)?',a:'<strong>NÃO!</strong> Estão no mesmo nível hierárquico. A diferença é a matéria reservada pela CF e o quórum. Conflito entre LC e LO é resolvido por <strong>competência</strong>, não por hierarquia.',mat:'DC · Aula 00'},
-  {id:'dc006',q:'O que é Mutação Constitucional e qual poder a realiza?',a:'É a alteração do <strong>sentido e interpretação</strong> da norma sem modificar o texto formal.<br>Realizada pelo <strong>Poder Constituinte Difuso</strong>.<br>Exemplos: SV 25 (depositário infiel) e ADI 4277 (união homoafetiva).',mat:'DC · Aula 00'},
-  {id:'dc007',q:'O Município possui Poder Constituinte Decorrente?',a:'<strong>NÃO!</strong> Estados possuem PC Decorrente e elaboram <strong>Constituições Estaduais</strong>.<br>Municípios elaboram <strong>Leis Orgânicas</strong> — a doutrina majoritária nega que isso configure PC Decorrente.',mat:'DC · Aula 00'},
-  {id:'dc008',q:'A tese de Otto Bachof sobre normas constitucionais inconstitucionais é aceita pelo STF?',a:'<strong>NÃO!</strong> Expressamente rejeitada na <strong>ADI 815</strong>.<br>Não há hierarquia entre normas originárias nem entre estas e as cláusulas pétreas do art. 60, §4º.',mat:'DC · Aula 00'},
-];
+
 
 // ===========================================
 // ESTADO
@@ -1120,13 +1120,21 @@ function showView(name){
 function showMateria(mat){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.querySelectorAll('.mat-view').forEach(v=>{v.classList.remove('active');v.style.display='none';});
-  const el = g('view-'+mat);
-  if(el){ el.classList.add('active'); el.style.display='flex'; }
-  const concl = gl(`aula_concl_${mat}_0`);
-  const btn = g('btn-flutuante');
-  if(!concl){ btn.classList.add('visible'); btn.classList.remove('done'); btn.disabled=false; btn.textContent='✓ Marcar Aula 00 como Concluída'; }
-  else { btn.classList.add('visible','done'); btn.textContent='✅ Aula Concluída'; }
+  const el=g('view-'+mat);
+  if(el){el.classList.add('active');el.style.display='flex';}
+  // Botão flutuante — verifica aula ativa
+  const aulaAtiva=parseInt(document.querySelector('.aula-sec.active')?.id?.split('-').pop()||'0');
+  atualizarBtnFlutuante(mat,aulaAtiva);
   window.scrollTo(0,0);
+}
+
+function atualizarBtnFlutuante(mat,idx){
+  const concl=gl(`aula_concl_${mat}_${idx}`);
+  const btn=g('btn-flutuante');
+  btn.onclick=()=>marcarConcluida(mat,idx);
+  btn.textContent=concl?'✅ Aula Concluída':`✓ Marcar Aula ${String(idx).padStart(2,'0')} como Concluída`;
+  if(concl){btn.classList.add('visible','done');btn.disabled=true;}
+  else{btn.classList.add('visible');btn.classList.remove('done');btn.disabled=false;}
 }
 
 function iniciarQ(mat){ matQ=mat; showView('questoes'); }
@@ -1140,11 +1148,12 @@ function setAba(id,btn){
 function showAula(idx){
   document.querySelectorAll('.aula-sec').forEach(a=>a.classList.remove('active'));
   document.querySelectorAll('[id^="dc-sb-"]').forEach(s=>s.classList.remove('active'));
-  const sb = g('dc-sb-'+idx); if(sb) sb.classList.add('active');
-  const el = g('aula-dc-'+idx); if(el) el.classList.add('active');
+  const sb=g('dc-sb-'+idx); if(sb) sb.classList.add('active');
+  const el=g('aula-dc-'+idx); if(el) el.classList.add('active');
   g('dc-content').scrollTo(0,0);
-  ls('dc_ult', TEMAS.dc[idx]?.nome||'');
+  ls(`dc_ult`, TEMAS.dc[idx]?.nome||'');
   atualizarUlt('dc');
+  atualizarBtnFlutuante('dc',idx);
 }
 
 // ===========================================
@@ -2261,98 +2270,9 @@ function setGreeting(){
 // ===========================================
 // AULA 00 — CONTEÚDO FIXO
 // ===========================================
-function inserirAula00(){
-  const el=g('aula-dc-0');if(!el)return;
-  el.innerHTML=`
-<div class="tema-header">
-  <div class="tema-tag">AULA 00 · CF/88 · DIREITO CONSTITUCIONAL</div>
-  <div class="tema-title">Aplicabilidade das Normas · Hierarquia · Poder Constituinte · Princípios Fundamentais</div>
-  <div class="tema-desc">A compreensão estrutural do Direito Constitucional passa por quatro eixos centrais: a aplicabilidade das normas, a hierarquia, o poder constituinte e os princípios fundamentais.</div>
-</div>
-<div class="cblock">
-  <div class="cblock-title">🧠 A) Aplicabilidade das Normas Constitucionais — José Afonso da Silva</div>
-  <p>A eficácia jurídica é comum a <strong>todas as normas</strong>, variando apenas o seu <strong>grau</strong>.</p>
-  <div class="table-wrap"><table><tr><th>Tipo de Norma</th><th>Aplicabilidade</th><th>Precisam de regulamentação?</th><th>Podem ser Restringidas?</th></tr><tr><td><strong>Eficácia Plena</strong></td><td>Direta, Imediata e Integral</td><td>Não (são completas)</td><td>Não</td></tr><tr><td><strong>Eficácia Contida</strong> (Prospectiva)</td><td>Direta, Imediata e Possivelmente Não Integral</td><td>Não (nascem aptas)</td><td><strong>Sim</strong> (por lei/norma)</td></tr><tr><td><strong>Eficácia Limitada</strong></td><td>Indireta, Mediata e Reduzida</td><td><strong>Sim</strong> (para eficácia total)</td><td>Não aplicável (dependem de ampliação)</td></tr></table></div>
-  <p><strong>Eficácia Plena:</strong> São autoaplicáveis e não restringíveis. Desde a promulgação, produzem ou podem produzir todos os efeitos.</p>
-  <p><strong>Eficácia Contida (ou Prospectiva):</strong> São autoaplicáveis e restringíveis. Nascem plenas, mas a lei, outra norma constitucional ou conceitos ético-jurídicos podem limitar seu alcance.</p>
-  <p><strong>Eficácia Limitada:</strong> Não são autoaplicáveis. Dependem de lei. Subdividem-se em <strong>Princípios Institutivos/Organizativos</strong> (estruturam o Estado) e <strong>Princípios Programáticos</strong> (traçam diretrizes sociais).</p>
-  <p><strong>Efeitos imediatos das normas de Eficácia Limitada:</strong> efeito <strong>negativo</strong> (revoga leis anteriores contrárias e proíbe novas) e efeito <strong>vinculativo</strong> (obriga o legislador a regulamentar). Limitada ≠ sem efeito!</p>
-  <div class="callout gold"><div class="callout-lbl">💡 Classificação de Maria Helena Diniz</div>Eficácia <strong>absoluta</strong> (cláusulas pétreas) · <strong>plena</strong> · <strong>relativa restringível</strong> (= contida) · <strong>relativa complementável</strong> (= limitada).</div>
-  <div class="callout red"><div class="callout-lbl">⚠️ PEGADINHA — Eficácia Limitada ≠ Sem Efeito</div>Candidatos confundem a necessidade de regulamentação com ausência de efeito. As normas limitadas geram <strong>efeito negativo</strong> e <strong>vinculativo</strong> imediatamente.</div>
-</div>
-<div class="cblock">
-  <div class="cblock-title">🏛️ B) Hierarquia das Normas — Pirâmide de Kelsen</div>
-  <div class="table-wrap"><table><tr><th>Nível</th><th>Normas</th><th>Observação</th></tr><tr><td><strong>Constitucional</strong></td><td>Normas Originárias + ECs + Tratados DH (art. 5º, §3º)</td><td>Rito especial = 3/5 em 2 turnos em cada Casa</td></tr><tr><td><strong>Supralegal</strong></td><td>Tratados de DH aprovados pelo rito ordinário</td><td>Ex: Pacto de São José — SV 25 (depositário infiel)</td></tr><tr><td><strong>Legal (Primário)</strong></td><td>LC, LO, Leis Delegadas, MPs, Decretos Autônomos</td><td>Criam direitos e obrigações</td></tr><tr><td><strong>Infralegal (Secundário)</strong></td><td>Decretos regulamentares, portarias</td><td>Não inovam na ordem jurídica</td></tr></table></div>
-  <div class="callout red"><div class="callout-lbl">⚠️ ATENÇÃO — Hierarquias que NÃO existem</div><strong>NÃO HÁ</strong> hierarquia entre Lei Complementar e Lei Ordinária. <strong>NÃO HÁ</strong> hierarquia entre leis Federal, Estadual e Municipal. Conflitos são resolvidos pela <strong>repartição de competências</strong>.</div>
-</div>
-<div class="cblock">
-  <div class="cblock-title">⚡ C) Poder Constituinte</div>
-  <p>O <strong>titular do poder constituinte é o povo</strong>.</p>
-  <div class="table-wrap"><table><tr><th>Característica</th><th>Poder Originário (PCO)</th><th>Poder Derivado (PCD)</th></tr><tr><td><strong>Natureza</strong></td><td>Político (Extrajurídico)</td><td>Jurídico (criado pela CF)</td></tr><tr><td><strong>Limitação</strong></td><td>Ilimitado juridicamente</td><td>Limitado (subordinado à CF)</td></tr><tr><td><strong>Forma</strong></td><td>Incondicionado</td><td>Condicionado (art. 60)</td></tr><tr><td><strong>Início</strong></td><td>Inicial (Rompimento)</td><td>Derivado</td></tr></table></div>
-  <p><strong>PCD subdivide-se em:</strong></p>
-  <ul><li><strong>Reformador:</strong> Emendas Constitucionais (3/5 em 2 turnos em cada Casa).</li><li><strong>Decorrente:</strong> Constituições Estaduais. <u>Municípios elaboram Leis Orgânicas — NÃO têm PC Decorrente.</u></li><li><strong>Revisor:</strong> Sessão unicameral, maioria absoluta, exaurido (ADCT, art. 3º).</li><li><strong>Difuso:</strong> Mutação Constitucional — altera a interpretação sem modificar o texto.</li></ul>
-  <div class="callout red"><div class="callout-lbl">⚠️ PEGADINHA — PCO é Ilimitado Juridicamente</div>A corrente positivista (adotada no Brasil) afirma que o PCO é juridicamente ilimitado. Contudo, aceita-se modernamente o "efeito cliquet" (vedação ao retrocesso).</div>
-  <div class="callout red"><div class="callout-lbl">⚠️ CONFUSÃO — Município e PC Decorrente</div>Municípios elaboram <strong>Leis Orgânicas</strong>. A doutrina nega que isso configure Poder Constituinte Decorrente.</div>
-</div>
-<div class="cblock">
-  <div class="cblock-title">🏛️ D) Base Normativa — Arts. 1º a 4º e Art. 60, §4º CF/88</div>
-  <p><strong>Art. 1º — Fundamentos:</strong></p>
-  <div class="callout blue"><div class="callout-lbl">📌 MNEMÔNICO — SOCIDIVAPLU</div><strong>SO</strong>berania · <strong>CI</strong>dadania · <strong>DI</strong>gnidade da pessoa humana · <strong>VA</strong>lores sociais do trabalho e livre iniciativa · <strong>PLU</strong>ralismo político</div>
-  <p><strong>Art. 2º:</strong> Poderes da União — independentes e harmônicos entre si: Legislativo, Executivo e Judiciário.</p>
-  <p><strong>Art. 3º — Objetivos Fundamentais:</strong></p>
-  <div class="callout blue"><div class="callout-lbl">📌 MNEMÔNICO — CONGA ERRA PRO (são verbos!)</div><strong>CON</strong>struir sociedade livre, justa e solidária · <strong>GA</strong>rantir desenvolvimento nacional · <strong>ERRA</strong>dicar pobreza e marginalização e <strong>reduzir</strong> desigualdades · <strong>PRO</strong>mover o bem de todos sem preconceitos</div>
-  <div class="callout red"><div class="callout-lbl">⚠️ PEGADINHA CLÁSSICA — Art. 3º, III</div>A CF visa <strong>ERRADICAR</strong> a pobreza, mas busca <strong>REDUZIR</strong> as desigualdades. Banca escreve "reduzir a pobreza" → assertiva <strong>ERRADA</strong>.</div>
-  <p><strong>Art. 4º — Relações Internacionais:</strong> I-independência; II-prevalência dos DH; III-autodeterminação; IV-não-intervenção; V-igualdade entre Estados; VI-defesa da paz; VII-solução pacífica dos conflitos; VIII-repúdio ao terrorismo e ao racismo; IX-cooperação; X-concessão de asilo político. Parágrafo único: integração da <strong>América Latina</strong>.</p>
-  <p><strong>Art. 60, §4º — Cláusulas Pétreas:</strong> I-forma federativa de Estado; II-voto direto, secreto, universal e periódico; III-separação dos Poderes; IV-direitos e garantias individuais.</p>
-</div>
-<div class="cblock">
-  <div class="cblock-title">⚖️ E) Jurisprudência Relevante — STF</div>
-  <div class="callout gold"><div class="callout-lbl">📌 ADI 815 — Tese de Otto Bachof</div>REJEITADA pelo STF. Não há hierarquia entre normas originárias nem entre estas e as cláusulas pétreas.</div>
-  <div class="callout gold"><div class="callout-lbl">📌 RE 94.414/SP — Direito Adquirido vs PCO</div>Não se pode invocar direito adquirido contra manifestação do Poder Constituinte Originário.</div>
-  <div class="callout gold"><div class="callout-lbl">📌 SV 25 — Controle de Convencionalidade</div>É ilícita a prisão civil de depositário infiel. Pacto de São José da Costa Rica (supralegal) prevaleceu sobre lei infraconstitucional — exemplo clássico de mutação constitucional.</div>
-  <div class="callout gold"><div class="callout-lbl">📌 ADI 4277 — União Homoafetiva</div>Reconhecida como entidade familiar por mutação constitucional — princípios da igualdade, dignidade e busca pela felicidade.</div>
-</div>
-<div class="cblock">
-  <div class="cblock-title">📐 F) Princípios Fundamentais vs Regras</div>
-  <p><strong>Regras</strong> seguem a lógica do "tudo ou nada" — ou se aplica integralmente, ou não se aplica.</p>
-  <p><strong>Princípios</strong> são mandamentos nucleares com dimensão de peso. Quando dois princípios colidem, um cede no caso concreto sem ser invalidado (ponderação).</p>
-</div>
-<div class="cblock" style="background:rgba(5,150,105,.04);border-color:rgba(5,150,105,.25)">
-  <div class="cblock-title" style="color:var(--g3)">⚡ Insumos para Revisão — Flashcards</div>
-  <div class="resumo-item">"As normas de eficácia contida possuem aplicabilidade direta e imediata desde a promulgação, mas podem ter seu alcance restringido por legislação futura."</div>
-  <div class="resumo-item">"Normas de eficácia limitada possuem eficácia jurídica mínima, gerando desde logo o efeito negativo e o efeito vinculativo."</div>
-  <div class="resumo-item">"NÃO existe hierarquia entre LC e LO, nem entre leis federal, estadual e municipal."</div>
-  <div class="resumo-item">"A tese de Otto Bachof é expressamente rejeitada pelo STF (ADI 815)."</div>
-  <div class="resumo-item">"Tratados de DH aprovados em 2 turnos, 3/5 dos votos em cada Casa têm status constitucional."</div>
-  <div class="resumo-item">"O PCO é inicial, autônomo, incondicionado, permanente e ilimitado juridicamente."</div>
-  <div class="resumo-item">"Municípios elaboram Leis Orgânicas — NÃO exercem Poder Constituinte Decorrente."</div>
-  <div class="resumo-item">"Mutação constitucional (PC Difuso) altera o sentido da norma sem modificar o texto formal."</div>
-</div>
-<div class="aula-concluir">
-  <div class="aula-concluir-row">
-    <div>
-      <div class="aula-concluir-title">✅ Concluiu esta aula?</div>
-      <div class="aula-concluir-sub">Marque como concluída para registrar +200 XP e ativar as revisões adaptativas automáticas (1, 7, 30 e 90 dias).</div>
-    </div>
-    <button class="btn-concluir" id="btn-concluir-dc0" onclick="marcarConcluida('dc',0)">✓ Marcar como Concluída</button>
-  </div>
-  <div class="aula-concluir-msg" id="aula-concluir-msg"></div>
-</div>
-<div class="tema-nav">
-  <button class="btn-nav sec" onclick="showView('dashboard')">← Hub</button>
-  <button class="btn-nav primary" onclick="alert('Aula 01 em breve! Traga o conteúdo do NotebookLM.')">Aula 01 →</button>
-</div>`;
-}
+// Conteúdo carregado via conteudo.js
 
-function restaurarBotaoConcluir(){
-  const concl=gl('aula_concl_dc_0');
-  if(concl){
-    const b=g('btn-concluir-dc0');
-    if(b){b.disabled=true;b.textContent='✅ Aula Concluída!';}
-    const msg=g('aula-concluir-msg');
-    if(msg){msg.style.display='block';msg.textContent=`✅ Concluída em ${new Date(concl).toLocaleDateString('pt-BR')} · Revisões agendadas!`;}
-  }
-}
+// restaurarBotaoConcluir — movida para conteudo.js
 
 // ===========================================
 // MIGRAR ATRASADAS AO CARREGAR
@@ -2374,8 +2294,8 @@ setGreeting();
 carregarChave();
 S.xp=parseInt(gl('user_xp')||'0');
 initCron();
-inserirAula00();
-restaurarBotaoConcluir();
+inicializarConteudo();
+// restaurarBotoesConteudo chamada via inicializarConteudo()
 verificarConcluidas();
 carregarDesafios();
 renderAtividades();
