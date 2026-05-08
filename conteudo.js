@@ -5,6 +5,13 @@
 // Para adicionar aula: entregue aulaNN.js + este arquivo atualizado
 // ===========================================
 
+// Helper — disponível para todos os arquivos de aula
+if(typeof g === 'undefined'){
+  window.g = function(id){ return document.getElementById(id); };
+  window.gl = function(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } };
+  window.ls = function(k,v){ try{ localStorage.setItem(k,typeof v==='object'?JSON.stringify(v):String(v)); }catch(e){} };
+}
+
 const MATERIAS = {
   // CONHECIMENTO BÁSICO
   dc:  {nome:'Direito Constitucional',        tipo:'basico',    cor:'var(--p2)'},
