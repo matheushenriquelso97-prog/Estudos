@@ -2240,7 +2240,8 @@ let S = {
 
 function calcTeto(){
   let n = 0;
-  Object.values(AULAS).forEach(arr => n += arr.length);
+  const aulas = window.AULAS || AULAS;
+  Object.values(aulas).forEach(arr => n += arr.length);
   return Math.max(n * 1000, 1000);
 }
 
