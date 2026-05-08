@@ -43,7 +43,7 @@ window.MATERIAS = {
 window.AULAS = {
   dc:  ['Aula 00 — Normas Constitucionais e Poder Constituinte','Aula 01 — Gerações e Características dos Direitos Fundamentais'],
   da:  [], lp:  [], rl:  [], ap:  [], ti:  [], ea:  [], mf:  [],
-  cg:  [], cp:  [], afo: [], lrf: [], df:  [], dt:  [], lt:  [],
+  cg:  [], cp:  ['Aula 00 — Conceito, Campo de Aplicação, Objeto e Objetivo'], afo: [], lrf: [], df:  [], dt:  [], lt:  [],
   ce:  [], ag:  [], ai:  [], nbc: [], adc: [], fp:  [], gp:  [],
   dp:  [], pa:  [], ep:  [], cc:  [],
 };
@@ -57,7 +57,9 @@ window.TEMAS = {
     {id:'dc_1',nome:'Aula 01 — Gerações e Características dos Direitos Fundamentais',ctx:`Direitos do homem (jusnaturalista) x Direitos fundamentais (CF, Título II) x Direitos humanos (tratados internacionais). Direitos=bens protegidos; Garantias=instrumentos de proteção (habeas corpus). Gerações: 1ª=liberdade/não fazer/civis e políticos; 2ª=igualdade/fazer/sociais econômicos culturais/programáticas; 3ª=fraternidade/difusos e coletivos; 4ª=Bonavides:democracia,informação,pluralismo / Bobbio:engenharia genética; 5ª=paz. Lema Revolução Francesa. Gerações se ACUMULAM — doutrina prefere dimensões. STF MS 22.164-SP. Jellinek: passivo=sujeição; negativo=liberdade; positivo=prestação; ativo=direitos políticos. Características: universalidade (exceção:grupos específicos); historicidade; indivisibilidade; inalienabilidade; imprescritibilidade; irrenunciabilidade (exceção:autolimitação voluntária); relatividade=MAIS COBRADA/NÃO HÁ DIREITO ABSOLUTO/concordância prática; efeito cliquet. Teoria interna(absoluta) x externa(relativa/ponderação). Limites dos limites: adequação+necessidade+proporcionalidade. Eficácia vertical x horizontal(STF RE 201.819/RJ, teoria direta e imediata prevalece) x diagonal. Catálogo Título II: 5 categorias, TODAS espécies do gênero. Art.5§2: sistema aberto.`},
   ],
   da:[], lp:[], rl:[], ap:[], ti:[], ea:[], mf:[],
-  cg:[], cp:[], afo:[], lrf:[], df:[], dt:[], lt:[],
+  cg:[],
+  cp:[{id:'cp_0',nome:'Aula 00 — Conceito · Campo de Aplicação · Objeto · Objetivo',ctx:`CASP objeto=PATRIMÔNIO PÚBLICO (não orçamento). NBC T 16.1 revogada: integralmente=governamentais+dependentes+SistemaS+Conselhos; parcialmente=independentes. NBC TSP: OBRIGATÓRIO=governos+poderes+autarquias+fundações+fundos+consórcios+dependentes; FACULTATIVO=independentes+demais. Dependentes: recebem recursos para pessoal/custeio/capital (Embrapa,EBC,Nuclep,INB). Independentes: não recebem (Petrobras,BB,Caixa,Correios). Sistema S: revogada=integral; CFC=facultativo; TCU Acórdão 1567/2020=OBRIGATÓRIO. Bens públicos Art.99 CC: uso comum (bens naturais NÃO integram patrimônio — só os que absorveram recursos públicos); uso especial (TODOS controlados — hospitais, museus, quartéis); dominicais (TODOS controlados, podem ser alienados). TODOS insuscetíveis de usucapião. Objetivo: fornecer informações úteis aos usuários dos RCPGs para accountability e tomada de decisão. RCPGs não atendem necessidades específicas. Usuários primários: usuários dos serviços+representantes+provedores de recursos. NÃO primários: comissões do Legislativo, analistas, mídia, auditoria, agências reguladoras, agências classificação risco. Naturezas da informação: orçamentária, financeira, econômica, física. MCASP: não é norma, é conjunto de procedimentos STN, 6 partes (Geral, I-Orçamentários, II-Patrimoniais, III-Específicos, IV-PCASP, V-DCASP). LRF atende arts. 163, 169, 165§9, 250 CF/88.`}],
+  afo:[], lrf:[], df:[], dt:[], lt:[],
   ce:[], ag:[], ai:[], nbc:[], adc:[], fp:[], gp:[],
   dp:[], pa:[], ep:[], cc:[],
 };
@@ -84,6 +86,17 @@ window.CARDS = [
   {id:'dc108',q:'O que é o efeito cliquet?',a:'Proibição do retrocesso — direitos fundamentais <strong>não podem ser suprimidos ou enfraquecidos</strong>.<br>Princípio do não retrocesso social.',mat:'DC · Aula 01'},
   {id:'dc109',q:'Qual teoria de eficácia horizontal prevalece no Brasil?',a:'<strong>Teoria direta e imediata</strong> — adotada pelo STF (RE 201.819/RJ, Min. Ellen Gracie, 2005).<br>Direitos fundamentais aplicam-se diretamente entre particulares.',mat:'DC · Aula 01'},
   {id:'dc110',q:'Quais as 5 categorias do catálogo de direitos fundamentais (Título II CF/88)?',a:'a) Individuais e coletivos (art. 5º)<br>b) Sociais (arts. 6º–11)<br>c) Nacionalidade (arts. 12–13)<br>d) Políticos (arts. 14–16)<br>e) Partidos políticos (art. 17)<br>⚠️ TODAS são espécies do gênero "direitos fundamentais".',mat:'DC · Aula 01'},
+
+  {id:'cp001',q:'Qual o OBJETO da Contabilidade Pública?',a:'<strong>PATRIMÔNIO PÚBLICO</strong>.<br>⚠️ NÃO é o orçamento público. NÃO é o planejamento público.',mat:'CP · Aula 00'},
+  {id:'cp002',q:'Qual a diferença entre Estatais DEPENDENTES e INDEPENDENTES? Dê exemplos.',a:'<strong>Dependentes</strong>: recebem recursos do controlador para pessoal/custeio/capital. Aplicam CASP obrigatoriamente. Ex: Embrapa, EBC, Nuclep.<br><strong>Independentes</strong>: não recebem esses recursos. Aplicação facultativa. Ex: Petrobras, Banco do Brasil, Caixa, Correios.',mat:'CP · Aula 00'},
+  {id:'cp003',q:'Como o Sistema "S" é tratado na CASP conforme os diferentes entendimentos?',a:'<strong>NBC T 16.1 (revogada)</strong>: escopo integral.<br><strong>CFC (ITG 2002 R1)</strong>: escopo facultativo.<br><strong>TCU (Acórdão 1.567/2020)</strong>: escopo <strong>OBRIGATÓRIO</strong> — entendimento mais atualizado.',mat:'CP · Aula 00'},
+  {id:'cp004',q:'Bens naturais como rios e mares integram o patrimônio público?',a:'<strong>NÃO!</strong> Bens naturais (rios, mares, praias) NÃO integram o patrimônio público porque o Poder Público não consumiu recursos para construí-los.<br>Somente os bens de uso comum que absorveram recursos públicos ou foram recebidos em doação são controlados.',mat:'CP · Aula 00'},
+  {id:'cp005',q:'Quais bens públicos podem ser alienados? Todos são insuscetíveis de usucapião?',a:'<strong>Bens dominicais</strong> podem ser alienados.<br>Bens de uso comum e de uso especial são <strong>inalienáveis</strong> enquanto conservarem a qualificação.<br><strong>TODOS</strong> os bens públicos são insuscetíveis de usucapião.',mat:'CP · Aula 00'},
+  {id:'cp006',q:'O que são RCPGs e para quem são elaborados?',a:'Relatórios Contábeis de Propósito Geral das Entidades do Setor Público.<br>Elaborados para atender às <strong>necessidades dos usuários em geral</strong>.<br>⚠️ NÃO são elaborados para atender necessidades específicas ou particulares de determinados grupos.',mat:'CP · Aula 00'},
+  {id:'cp007',q:'Quais são os usuários PRIMÁRIOS da informação contábil no setor público?',a:'▪ Usuários dos serviços e seus representantes (membros do Poder Legislativo).<br>▪ Provedores de recursos e seus representantes.<br>⚠️ Comissões do Poder Legislativo <strong>NÃO são</strong> usuários primários.',mat:'CP · Aula 00'},
+  {id:'cp008',q:'Quais as 4 naturezas das informações contábeis da CASP?',a:'<strong>Orçamentária</strong>: previsão e execução do orçamento.<br><strong>Financeira</strong>: fluxo de caixa (entradas e saídas).<br><strong>Econômica</strong>: resultados obtidos e escolhas de aplicação dos recursos.<br><strong>Física</strong>: existência física dos elementos patrimoniais.',mat:'CP · Aula 00'},
+  {id:'cp009',q:'O MCASP é uma norma? Quais são suas partes?',a:'<strong>NÃO é norma</strong> — é um conjunto de procedimentos editado pela STN.<br>6 partes: Geral (CASP) · Parte I (Orçamentários) · Parte II (Patrimoniais) · Parte III (Específicos) · Parte IV (PCASP) · Parte V (DCASP).',mat:'CP · Aula 00'},
+  {id:'cp010',q:'Qual o campo de aplicação da CASP segundo a NBC TSP Estrutura Conceitual?',a:'<strong>OBRIGATÓRIO</strong>: governos + todos os poderes + autarquias + fundações públicas + fundos + consórcios + estatais dependentes.<br><strong>FACULTATIVO</strong>: demais entidades + estatais independentes (ou por determinação dos órgãos reguladores).',mat:'CP · Aula 00'},
 ];
 
 // ===========================================
@@ -92,6 +105,7 @@ window.CARDS = [
 function inicializarConteudo(){
   if(typeof inserirAula_dc0==='function') inserirAula_dc0();
   if(typeof inserirAula_dc1==='function') inserirAula_dc1();
+  if(typeof inserirAula_cp0==='function') inserirAula_cp0();
   restaurarBotoesConteudo();
 }
 

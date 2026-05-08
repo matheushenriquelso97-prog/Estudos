@@ -572,6 +572,32 @@ tr:last-child td{border-bottom:none;}
     <div class="sb-item" id="sb-tutor" onclick="showView('ia-tutor')"><span class="sb-item-ic">🧠</span>IA Tutor</div>
     <div class="sb-sec">Matérias</div>
     <div class="sb-item" id="sb-dc" onclick="showMateria('dc')"><span class="sb-item-ic">⚖️</span>Dir. Constitucional</div>
+    <div class="sb-item" id="sb-cp" onclick="showMateria('cp')"><span class="sb-item-ic">📊</span>Contabilidade Pública</div>
+    <div class="sb-item" id="sb-da" onclick="showMateria('da')"><span class="sb-item-ic">🏛️</span>Direito Administrativo</div>
+    <div class="sb-item" id="sb-lp" onclick="showMateria('lp')"><span class="sb-item-ic">📝</span>Língua Portuguesa</div>
+    <div class="sb-item" id="sb-rl" onclick="showMateria('rl')"><span class="sb-item-ic">🧮</span>Raciocínio Lógico e Matemático</div>
+    <div class="sb-item" id="sb-ap" onclick="showMateria('ap')"><span class="sb-item-ic">🏢</span>Administração Pública</div>
+    <div class="sb-item" id="sb-ti" onclick="showMateria('ti')"><span class="sb-item-ic">💻</span>Tecnologia da Informação</div>
+    <div class="sb-item" id="sb-ea" onclick="showMateria('ea')"><span class="sb-item-ic">📊</span>Estatística Aplicada</div>
+    <div class="sb-item" id="sb-mf" onclick="showMateria('mf')"><span class="sb-item-ic">💰</span>Matemática Financeira</div>
+    <div class="sb-item" id="sb-cg" onclick="showMateria('cg')"><span class="sb-item-ic">📒</span>Contabilidade Geral e Societária</div>
+    <div class="sb-item" id="sb-afo" onclick="showMateria('afo')"><span class="sb-item-ic">💼</span>Adm. Financeira e Orçamentária</div>
+    <div class="sb-item" id="sb-lrf" onclick="showMateria('lrf')"><span class="sb-item-ic">⚖️</span>Lei de Responsabilidade Fiscal</div>
+    <div class="sb-item" id="sb-df" onclick="showMateria('df')"><span class="sb-item-ic">💵</span>Direito Financeiro</div>
+    <div class="sb-item" id="sb-dt" onclick="showMateria('dt')"><span class="sb-item-ic">🧾</span>Direito Tributário</div>
+    <div class="sb-item" id="sb-lt" onclick="showMateria('lt')"><span class="sb-item-ic">📋</span>Legislação Tributária</div>
+    <div class="sb-item" id="sb-ce" onclick="showMateria('ce')"><span class="sb-item-ic">🔍</span>Controle Externo</div>
+    <div class="sb-item" id="sb-ag" onclick="showMateria('ag')"><span class="sb-item-ic">🔎</span>Auditoria Governamental</div>
+    <div class="sb-item" id="sb-ai" onclick="showMateria('ai')"><span class="sb-item-ic">📑</span>Auditoria Independente</div>
+    <div class="sb-item" id="sb-nbc" onclick="showMateria('nbc')"><span class="sb-item-ic">📚</span>Normas Brasileiras de Contabilidade</div>
+    <div class="sb-item" id="sb-adc" onclick="showMateria('adc')"><span class="sb-item-ic">📈</span>Análise das Demonstrações Contábeis</div>
+    <div class="sb-item" id="sb-fp" onclick="showMateria('fp')"><span class="sb-item-ic">🏦</span>Finanças Públicas</div>
+    <div class="sb-item" id="sb-gp" onclick="showMateria('gp')"><span class="sb-item-ic">🎯</span>Gestão Pública</div>
+    <div class="sb-item" id="sb-dp" onclick="showMateria('dp')"><span class="sb-item-ic">👴</span>Direito Previdenciário</div>
+    <div class="sb-item" id="sb-pa" onclick="showMateria('pa')"><span class="sb-item-ic">⚖️</span>Direito Processual Administrativo</div>
+    <div class="sb-item" id="sb-ep" onclick="showMateria('ep')"><span class="sb-item-ic">🤝</span>Ética no Serviço Público</div>
+    <div class="sb-item" id="sb-cc" onclick="showMateria('cc')"><span class="sb-item-ic">🔢</span>Contabilidade de Custos</div>
+
   </div>
   <div class="sb-xp">
     <div class="sb-xp-row">
@@ -747,6 +773,652 @@ tr:last-child td{border-bottom:none;}
       </div>
       <div class="aula-sec" id="aula-dc-1">
         <!-- Conteúdo inserido via JS -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTABILIDADE PÚBLICA ===== -->
+<div class="mat-view" id="view-cp">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Contabilidade Pública</div>
+      <div class="dc-sb-sub">CASP · NBC TSP · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="cp-sb-0" onclick="showAulaCP(0)"><div class="dc-sb-dot"></div>Aula 00 — Conceito, Campo de Aplicação, Objeto</div>
+      <div class="dc-sb-item locked"><div class="dc-sb-dot"></div>Aula 01 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('cp')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="cp-content">
+      <div class="aula-sec active" id="aula-cp-0">
+        <!-- Conteúdo inserido via cp-aula00.js -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DIREITO ADMINISTRATIVO ===== -->
+<div class="mat-view" id="view-da">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Direito Administrativo</div>
+      <div class="dc-sb-sub">Atos · Licitações · Contratos · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="da-sb-0" onclick="showAulaMat('da',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('da')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="da-content">
+      <div class="aula-sec active" id="aula-da-0">
+        <!-- Conteúdo inserido via da-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">🏛️</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Direito Administrativo</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LÍNGUA PORTUGUESA ===== -->
+<div class="mat-view" id="view-lp">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Língua Portuguesa</div>
+      <div class="dc-sb-sub">Gramática · Interpretação · Redação · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="lp-sb-0" onclick="showAulaMat('lp',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('lp')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="lp-content">
+      <div class="aula-sec active" id="aula-lp-0">
+        <!-- Conteúdo inserido via lp-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">📝</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Língua Portuguesa</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== RACIOCÍNIO LÓGICO E MATEMÁTICO ===== -->
+<div class="mat-view" id="view-rl">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Raciocínio Lógico e Matemático</div>
+      <div class="dc-sb-sub">Lógica · Probabilidade · Estatística · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="rl-sb-0" onclick="showAulaMat('rl',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('rl')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="rl-content">
+      <div class="aula-sec active" id="aula-rl-0">
+        <!-- Conteúdo inserido via rl-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">🧮</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Raciocínio Lógico e Matemático</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ADMINISTRAÇÃO PÚBLICA ===== -->
+<div class="mat-view" id="view-ap">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Administração Pública</div>
+      <div class="dc-sb-sub">Gestão · Reforma · Modelos · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="ap-sb-0" onclick="showAulaMat('ap',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('ap')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="ap-content">
+      <div class="aula-sec active" id="aula-ap-0">
+        <!-- Conteúdo inserido via ap-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">🏢</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Administração Pública</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TECNOLOGIA DA INFORMAÇÃO ===== -->
+<div class="mat-view" id="view-ti">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Tecnologia da Informação</div>
+      <div class="dc-sb-sub">Segurança · Redes · Sistemas · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="ti-sb-0" onclick="showAulaMat('ti',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('ti')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="ti-content">
+      <div class="aula-sec active" id="aula-ti-0">
+        <!-- Conteúdo inserido via ti-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">💻</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Tecnologia da Informação</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ESTATÍSTICA APLICADA ===== -->
+<div class="mat-view" id="view-ea">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Estatística Aplicada</div>
+      <div class="dc-sb-sub">Probabilidade · Inferência · Testes · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="ea-sb-0" onclick="showAulaMat('ea',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('ea')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="ea-content">
+      <div class="aula-sec active" id="aula-ea-0">
+        <!-- Conteúdo inserido via ea-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">📊</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Estatística Aplicada</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MATEMÁTICA FINANCEIRA ===== -->
+<div class="mat-view" id="view-mf">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Matemática Financeira</div>
+      <div class="dc-sb-sub">Juros · Amortização · Fluxo de Caixa · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="mf-sb-0" onclick="showAulaMat('mf',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('mf')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="mf-content">
+      <div class="aula-sec active" id="aula-mf-0">
+        <!-- Conteúdo inserido via mf-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">💰</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Matemática Financeira</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTABILIDADE GERAL E SOCIETÁRIA ===== -->
+<div class="mat-view" id="view-cg">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Contabilidade Geral e Societária</div>
+      <div class="dc-sb-sub">Balanços · DRE · NBC TG · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="cg-sb-0" onclick="showAulaMat('cg',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('cg')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="cg-content">
+      <div class="aula-sec active" id="aula-cg-0">
+        <!-- Conteúdo inserido via cg-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">📒</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Contabilidade Geral e Societária</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ADM. FINANCEIRA E ORÇAMENTÁRIA ===== -->
+<div class="mat-view" id="view-afo">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Adm. Financeira e Orçamentária</div>
+      <div class="dc-sb-sub">PPA · LDO · LOA · Créditos · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="afo-sb-0" onclick="showAulaMat('afo',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('afo')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="afo-content">
+      <div class="aula-sec active" id="aula-afo-0">
+        <!-- Conteúdo inserido via afo-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">💼</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Adm. Financeira e Orçamentária</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LEI DE RESPONSABILIDADE FISCAL ===== -->
+<div class="mat-view" id="view-lrf">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Lei de Responsabilidade Fiscal</div>
+      <div class="dc-sb-sub">LRF · Limites · Transparência · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="lrf-sb-0" onclick="showAulaMat('lrf',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('lrf')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="lrf-content">
+      <div class="aula-sec active" id="aula-lrf-0">
+        <!-- Conteúdo inserido via lrf-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">⚖️</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Lei de Responsabilidade Fiscal</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DIREITO FINANCEIRO ===== -->
+<div class="mat-view" id="view-df">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Direito Financeiro</div>
+      <div class="dc-sb-sub">Orçamento · LRF · MCASP · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="df-sb-0" onclick="showAulaMat('df',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('df')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="df-content">
+      <div class="aula-sec active" id="aula-df-0">
+        <!-- Conteúdo inserido via df-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">💵</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Direito Financeiro</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DIREITO TRIBUTÁRIO ===== -->
+<div class="mat-view" id="view-dt">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Direito Tributário</div>
+      <div class="dc-sb-sub">CTN · Tributos · Competência · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="dt-sb-0" onclick="showAulaMat('dt',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('dt')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="dt-content">
+      <div class="aula-sec active" id="aula-dt-0">
+        <!-- Conteúdo inserido via dt-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">🧾</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Direito Tributário</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LEGISLAÇÃO TRIBUTÁRIA ===== -->
+<div class="mat-view" id="view-lt">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Legislação Tributária</div>
+      <div class="dc-sb-sub">IR · IPI · ICMS · ISS · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="lt-sb-0" onclick="showAulaMat('lt',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('lt')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="lt-content">
+      <div class="aula-sec active" id="aula-lt-0">
+        <!-- Conteúdo inserido via lt-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">📋</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Legislação Tributária</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTROLE EXTERNO ===== -->
+<div class="mat-view" id="view-ce">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Controle Externo</div>
+      <div class="dc-sb-sub">TCU · TCE · Fiscalização · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="ce-sb-0" onclick="showAulaMat('ce',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('ce')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="ce-content">
+      <div class="aula-sec active" id="aula-ce-0">
+        <!-- Conteúdo inserido via ce-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">🔍</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Controle Externo</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== AUDITORIA GOVERNAMENTAL ===== -->
+<div class="mat-view" id="view-ag">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Auditoria Governamental</div>
+      <div class="dc-sb-sub">Planejamento · Execução · Relatório · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="ag-sb-0" onclick="showAulaMat('ag',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('ag')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="ag-content">
+      <div class="aula-sec active" id="aula-ag-0">
+        <!-- Conteúdo inserido via ag-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">🔎</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Auditoria Governamental</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== AUDITORIA INDEPENDENTE ===== -->
+<div class="mat-view" id="view-ai">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Auditoria Independente</div>
+      <div class="dc-sb-sub">NBC TA · Parecer · Evidências · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="ai-sb-0" onclick="showAulaMat('ai',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('ai')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="ai-content">
+      <div class="aula-sec active" id="aula-ai-0">
+        <!-- Conteúdo inserido via ai-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">📑</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Auditoria Independente</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NORMAS BRASILEIRAS DE CONTABILIDADE ===== -->
+<div class="mat-view" id="view-nbc">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Normas Brasileiras de Contabilidade</div>
+      <div class="dc-sb-sub">NBC TG · NBC TSP · CFC · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="nbc-sb-0" onclick="showAulaMat('nbc',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('nbc')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="nbc-content">
+      <div class="aula-sec active" id="aula-nbc-0">
+        <!-- Conteúdo inserido via nbc-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">📚</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Normas Brasileiras de Contabilidade</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ANÁLISE DAS DEMONSTRAÇÕES CONTÁBEIS ===== -->
+<div class="mat-view" id="view-adc">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Análise das Demonstrações Contábeis</div>
+      <div class="dc-sb-sub">Índices · Liquidez · Rentabilidade · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="adc-sb-0" onclick="showAulaMat('adc',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('adc')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="adc-content">
+      <div class="aula-sec active" id="aula-adc-0">
+        <!-- Conteúdo inserido via adc-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">📈</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Análise das Demonstrações Contábeis</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FINANÇAS PÚBLICAS ===== -->
+<div class="mat-view" id="view-fp">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Finanças Públicas</div>
+      <div class="dc-sb-sub">Receita · Despesa · Dívida Pública · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="fp-sb-0" onclick="showAulaMat('fp',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('fp')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="fp-content">
+      <div class="aula-sec active" id="aula-fp-0">
+        <!-- Conteúdo inserido via fp-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">🏦</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Finanças Públicas</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GESTÃO PÚBLICA ===== -->
+<div class="mat-view" id="view-gp">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Gestão Pública</div>
+      <div class="dc-sb-sub">Planejamento · Controle · Avaliação · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="gp-sb-0" onclick="showAulaMat('gp',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('gp')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="gp-content">
+      <div class="aula-sec active" id="aula-gp-0">
+        <!-- Conteúdo inserido via gp-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">🎯</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Gestão Pública</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DIREITO PREVIDENCIÁRIO ===== -->
+<div class="mat-view" id="view-dp">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Direito Previdenciário</div>
+      <div class="dc-sb-sub">RGPS · RPPS · Benefícios · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="dp-sb-0" onclick="showAulaMat('dp',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('dp')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="dp-content">
+      <div class="aula-sec active" id="aula-dp-0">
+        <!-- Conteúdo inserido via dp-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">👴</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Direito Previdenciário</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DIREITO PROCESSUAL ADMINISTRATIVO ===== -->
+<div class="mat-view" id="view-pa">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Direito Processual Administrativo</div>
+      <div class="dc-sb-sub">PAD · Recursos · Prescrição · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="pa-sb-0" onclick="showAulaMat('pa',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('pa')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="pa-content">
+      <div class="aula-sec active" id="aula-pa-0">
+        <!-- Conteúdo inserido via pa-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">⚖️</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Direito Processual Administrativo</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ÉTICA NO SERVIÇO PÚBLICO ===== -->
+<div class="mat-view" id="view-ep">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Ética no Serviço Público</div>
+      <div class="dc-sb-sub">Código de Ética · Improbidade · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="ep-sb-0" onclick="showAulaMat('ep',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('ep')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="ep-content">
+      <div class="aula-sec active" id="aula-ep-0">
+        <!-- Conteúdo inserido via ep-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">🤝</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Ética no Serviço Público</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTABILIDADE DE CUSTOS ===== -->
+<div class="mat-view" id="view-cc">
+  <div class="mat-layout">
+    <div class="dc-sidebar">
+      <div class="dc-sb-title">Contabilidade de Custos</div>
+      <div class="dc-sb-sub">Custeio · ABC · Ponto de Equilíbrio · TCE-PE & ALEPE</div>
+      <div class="dc-sb-lbl">Aulas</div>
+      <div class="dc-sb-item active" id="cc-sb-0" onclick="showAulaMat('cc',0)"><div class="dc-sb-dot"></div>Aula 00 — Em breve</div>
+      <div class="dc-sb-lbl" style="margin-top:12px">Ferramentas</div>
+      <div class="dc-sb-item" onclick="iniciarQ('cc')"><div class="dc-sb-dot" style="border-color:var(--p2)"></div>Questões IA</div>
+      <div class="dc-sb-item" onclick="showView('anki')"><div class="dc-sb-dot" style="border-color:var(--go2)"></div>Revisão Anki</div>
+      <div class="dc-sb-item" onclick="showView('dashboard')"><div class="dc-sb-dot"></div>← Dashboard</div>
+    </div>
+    <div class="dc-content" id="cc-content">
+      <div class="aula-sec active" id="aula-cc-0">
+        <!-- Conteúdo inserido via cc-aula00.js -->
+        <div style="text-align:center;padding:80px 40px;color:var(--t3)">
+          <div style="font-size:52px;margin-bottom:16px">🔢</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:700;color:var(--t2);margin-bottom:8px">Contabilidade de Custos</div>
+          <div style="font-family:var(--fm);font-size:13px">Aula em preparação. Em breve o conteúdo estará disponível.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1022,6 +1694,7 @@ window.MODELO = 'claude-sonnet-4-5';
 <script src="conteudo.js"></script>
 <script src="dc-aula00.js"></script>
 <script src="dc-aula01.js"></script>
+<script src="cp-aula00.js"></script>
 <script>
 // ===========================================
 // CONSTANTES
@@ -1114,11 +1787,11 @@ function showView(name){
 function showMateria(mat){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.querySelectorAll('.mat-view').forEach(v=>{v.classList.remove('active');v.style.display='none';});
+  document.querySelectorAll('.sidebar .sb-item').forEach(s=>s.classList.remove('active'));
   const el=g('view-'+mat);
   if(el){el.classList.add('active');el.style.display='flex';}
-  // Botão flutuante — verifica aula ativa
-  const aulaAtiva=parseInt(document.querySelector('.aula-sec.active')?.id?.split('-').pop()||'0');
-  atualizarBtnFlutuante(mat,aulaAtiva);
+  const sbEl=g('sb-'+mat); if(sbEl) sbEl.classList.add('active');
+  atualizarBtnFlutuante(mat,0);
   window.scrollTo(0,0);
 }
 
@@ -1138,6 +1811,19 @@ function setAba(id,btn){
   btn.classList.add('active');
   g('aba-'+id).classList.add('active');
 }
+
+function showAulaMat(sigla, idx){
+  document.querySelectorAll(`#${sigla}-content .aula-sec`).forEach(a=>a.classList.remove('active'));
+  document.querySelectorAll(`[id^="${sigla}-sb-"]`).forEach(s=>s.classList.remove('active'));
+  const sb=g(`${sigla}-sb-${idx}`); if(sb) sb.classList.add('active');
+  const el=g(`aula-${sigla}-${idx}`); if(el) el.classList.add('active');
+  const cont=g(`${sigla}-content`); if(cont) cont.scrollTo(0,0);
+  atualizarBtnFlutuante(sigla,idx);
+}
+
+function showAulaCP(idx){ showAulaMat('cp', idx); }
+
+
 
 function showAula(idx){
   document.querySelectorAll('.aula-sec').forEach(a=>a.classList.remove('active'));
